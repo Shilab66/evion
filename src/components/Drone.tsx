@@ -1,5 +1,4 @@
 import { useGLTF } from "@react-three/drei";
-import * as THREE from "three";
 
 export function Drone() {
     const { scene } = useGLTF("/assets/BudgetDrone.glb"); // Use the 'scene' object

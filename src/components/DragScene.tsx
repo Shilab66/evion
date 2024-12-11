@@ -1,29 +1,30 @@
-import { Canvas } from '@react-three/fiber';
+import { Canvas, ThreeEvent } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
-import { SetStateAction, useState } from 'react';
+import { useState } from 'react';
 import { Drone } from './Drone';
+import * as THREE from 'three';
 
 export function DragScene() {
     const [isDragging, setIsDragging] = useState(false);
-    const [activePointerId, setActivePointerId] = useState(null);
+    const [activePointerId, setActivePointerId] = useState<number | null>(null);
 
-    const handlePointerDown = (event: { isPrimary: any; pointerId: SetStateAction<null>; stopPropagation: () => void; }) => {
-        if (event.isPrimary) { // Ensure this is the primary pointer (ignore multi-touch)
+    const handlePointerDown = (event: ThreeEvent<PointerEvent>) => {
+        if (event.nativeEvent.isPrimary) {
             setIsDragging(true);
             setActivePointerId(event.pointerId); // Track the pointer starting the drag
             event.stopPropagation(); // Prevent propagation to OrbitControls
         }
     };
 
-    const handlePointerMove = (event: { pointerId: null; object: any; movementX: number; movementY: number; }) => {
+    const handlePointerMove = (event: ThreeEvent<PointerEvent>) => {
         if (isDragging && event.pointerId === activePointerId) {
-            const object = event.object;
-            object.position.x += event.movementX / 100; // Use movementX for consistency
-            object.position.y -= event.movementY / 100; // Use movementY for consistency
+            const object = event.object as THREE.Object3D; // Type the object explicitly
+            object.position.x += event.nativeEvent.movementX / 100; // Use movementX for consistency
+            object.position.y -= event.nativeEvent.movementY / 100; // Use movementY for consistency
         }
     };
 
-    const handlePointerUp = (event: { pointerId: null; }) => {
+    const handlePointerUp = (event: ThreeEvent<PointerEvent>) => {
         if (event.pointerId === activePointerId) {
             setIsDragging(false);
             setActivePointerId(null); // Reset the active pointer
