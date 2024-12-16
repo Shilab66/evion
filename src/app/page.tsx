@@ -1,7 +1,6 @@
 "use client";
 
 import { DragScene } from "@/components";
-import { Scene } from "@/components"
 
 export default function Home() {
   return (
