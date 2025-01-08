@@ -5,6 +5,208 @@ import { DragScene } from "@/components";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Globe2, Shield, Users } from 'lucide-react';
 
+
+function EfficiencyAndSustainabilitySection() {
+  const [activeTab, setActiveTab] = useState('efficiency');
+
+  return (
+    <section className="min-h-screen py-24 px-8 bg-gradient-to-b from-black to-zinc-900">
+      <div className="max-w-7xl mx-auto">
+        <motion.h2 
+          className="text-6xl font-bold text-center mb-16 text-white"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          Efficiency Meets Sustainability
+        </motion.h2>
+        
+        <div className="flex justify-center mb-12">
+          <div className="inline-flex rounded-md shadow-sm" role="group">
+            {['efficiency', 'sustainability', 'innovation'].map((tab) => (
+              <button
+                key={tab}
+                type="button"
+                className={`px-4 py-2 text-sm font-medium ${
+                  activeTab === tab
+                    ? 'bg-green-500 text-white'
+                    : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                } border border-gray-700 rounded-md focus:z-10 focus:ring-2 focus:ring-blue-500 focus:text-white transition-colors duration-300`}
+                onClick={() => setActiveTab(tab)}
+              >
+                {tab.charAt(0).toUpperCase() + tab.slice(1)}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-16">
+          <div className="space-y-8">
+            {activeTab === 'efficiency' && (
+              <>
+                <motion.div 
+                  className="bg-gray-800 p-6 rounded-lg"
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                >
+                  <div className="flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                    <h3 className="text-2xl font-semibold">Energy Efficiency</h3>
+                  </div>
+                  <p className="text-gray-300">Our drones utilize advanced power management systems, maximizing flight time while minimizing energy consumption. With smart battery technology, we've achieved a 40% increase in operational efficiency.</p>
+                </motion.div>
+                
+                <motion.div 
+                  className="bg-gray-800 p-6 rounded-lg"
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                >
+                  <div className="flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                    <h3 className="text-2xl font-semibold">Aerodynamic Design</h3>
+                  </div>
+                  <p className="text-gray-300">Evion drones feature cutting-edge aerodynamic designs, reducing drag and improving overall performance. This results in longer flight times and reduced energy consumption.</p>
+                </motion.div>
+              </>
+            )}
+
+            {activeTab === 'sustainability' && (
+              <>
+                <motion.div 
+                  className="bg-gray-800 p-6 rounded-lg"
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                >
+                  <div className="flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                    </svg>
+                    <h3 className="text-2xl font-semibold">Eco-Friendly Materials</h3>
+                  </div>
+                  <p className="text-gray-300">Evion drones are built using recycled and sustainable materials, reducing our carbon footprint without compromising on performance. We've achieved a 70% use of recycled materials in our latest models.</p>
+                </motion.div>
+                
+                <motion.div 
+                  className="bg-gray-800 p-6 rounded-lg"
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                >
+                  <div className="flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
+                    <h3 className="text-2xl font-semibold">Circular Economy</h3>
+                  </div>
+                  <p className="text-gray-300">We've implemented a comprehensive recycling program for our drones, ensuring that end-of-life products are properly dismantled and materials are reused in new production cycles.</p>
+                </motion.div>
+              </>
+            )}
+
+            {activeTab === 'innovation' && (
+              <>
+                <motion.div 
+                  className="bg-gray-800 p-6 rounded-lg"
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                >
+                  <h3 className="text-2xl font-semibold mb-4">AI-Powered Route Optimization</h3>
+                  <p className="text-gray-300">Our drones leverage artificial intelligence to optimize flight paths in real-time, reducing energy consumption and improving delivery efficiency by up to 25%.</p>
+                </motion.div>
+                
+                <motion.div 
+                  className="bg-gray-800 p-6 rounded-lg"
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                >
+                  <h3 className="text-2xl font-semibold mb-4">Noise Reduction Technology</h3>
+                  <p className="text-gray-300">We've developed proprietary noise reduction technology that makes our drones 40% quieter than traditional models, minimizing noise pollution in urban environments.</p>
+                </motion.div>
+              </>
+            )}
+          </div>
+          
+          <div className="relative">
+            <motion.div 
+              className="absolute inset-0 bg-blue-500 rounded-full blur-3xl opacity-20"
+              animate={{ scale: [1, 1.2, 1], rotate: [0, 180, 360] }}
+              transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+            />
+            <motion.img
+              src="/placeholder.svg?height=400&width=400"
+              alt="Eco-friendly drone"
+              className="relative z-10 w-full h-auto rounded-lg shadow-2xl"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+            />
+          </div>
+        </div>
+        
+        <motion.div 
+          className="mt-16 bg-gray-800 p-8 rounded-lg"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+        >
+          <h3 className="text-2xl font-semibold mb-4 text-white">Sustainability Metrics</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { label: "Carbon Footprint Reduction", value: "30%" },
+              { label: "Energy Efficiency Improvement", value: "45%" },
+              { label: "Recycled Materials Used", value: "70%" }
+            ].map((metric, index) => (
+              <div key={index} className="text-center">
+                <div className="text-4xl font-bold text-green-400 mb-2">{metric.value}</div>
+                <div className="text-sm text-gray-400">{metric.label}</div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+
+        <div className="mt-24">
+          <h3 className="text-3xl font-semibold mb-8 text-center text-white">Environmental Impact Calculator</h3>
+          <div className="bg-gray-800 p-8 rounded-lg">
+            <p className="text-gray-300 mb-4">Estimate the environmental impact of switching to Evion drones:</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <label htmlFor="fleet-size" className="block text-sm font-medium text-gray-400 mb-2">Current Fleet Size</label>
+                <input type="number" id="fleet-size" className="w-full px-3 py-2 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter number of drones" />
+              </div>
+              <div>
+                <label htmlFor="operation-hours" className="block text-sm font-medium text-gray-400 mb-2">Daily Operation Hours</label>
+                <input type="number" id="operation-hours" className="w-full px-3 py-2 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter hours per day" />
+              </div>
+            </div>
+            <button className="mt-6 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition duration-300">
+              Calculate Impact
+            </button>
+            <div className="mt-6 p-4 bg-gray-700 rounded-md">
+              <p className="text-white">Estimated annual reduction:</p>
+              <ul className="list-disc list-inside text-gray-300 mt-2">
+                <li>Carbon emissions: X tons</li>
+                <li>Energy consumption: Y kWh</li>
+                <li>Operational costs: Z%</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
 export default function Home() {
   const [introComplete, setIntroComplete] = useState(false);
   const [showAutonomy, setShowAutonomy] = useState(false);
@@ -39,33 +241,11 @@ export default function Home() {
       </section>
 
       {/* Header Section */}
-      <section className="relative h-[300vh]">
-        <div className="sticky top-0 h-screen flex items-center justify-center">
-          <div className="text-center space-y-4">
-            <motion.h1
-              className="text-6xl font-bold gradient-text text-glow"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: showAutonomy ? 1 : 0 }}
-              transition={{ duration: 1 }}
-            >
-              Autonomy?
-            </motion.h1>
-            <motion.h1
-              className="text-6xl font-bold gradient-text text-glow"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: showWeGotIt ? 1 : 0 }}
-              transition={{ duration: 1 }}
-            >
-              We got it.
-            </motion.h1>
-          </div>
-        </div>
-      </section>
 
-      {/* Introduction Section */}
-      <section className="h-screen flex items-center justify-center text-center fade-in">
-        <p className="text-2xl font-light max-w-2xl mx-auto">
-          Evion is a fully autonomous fleet drone system that features self-navigation to optimize performance and efficiency.
+      <section className="h-screen text-center fade-in">
+      <h1 className="text-7xl font-bold text-center mb-8"> Autonomy? We got it.</h1>
+        <p className="text-3xl font-light max-w-xl mx-auto">
+        Evion is a fully autonomous fleet drone system that features self-navigation to optimize performance and efficiency.
         </p>
       </section>
 
@@ -101,14 +281,6 @@ export default function Home() {
           </div>
         ))}
       </section>
-
-{/* Designed to Make a Difference Section */}
-<section className="h-screen text-center fade-in">
-<h2 className="text-4xl font-bold gradient-text text-glow mb-4">Designed To Make a Difference</h2>
-<p className="text-3xl font-light max-w-xl mx-auto">
-  Evion's innovative technology ensures reliability and sustainability in all our operations.
-</p>
-</section>
 
 {/* New Impact Section */}
 <section className="min-h-screen py-24 px-8">
@@ -172,7 +344,7 @@ export default function Home() {
     <section className="min-h-screen py-24 px-8">
     <div className="max-w-7xl mx-auto text-center">
       <h2 className="text-6xl font-bold gradient-text text-glow mb-16">
-        Efficiency and Sustainability
+        Keeping it user centered
       </h2>
       
       <h3
@@ -236,8 +408,23 @@ export default function Home() {
     {/* Simple UI Section */}
     <section className="min-h-screen py-24 px-8 bg-zinc-900/30">
     <div className="max-w-7xl mx-auto text-center">
-      <h2 className="text-6xl font-bold gradient-text text-glow mb-8">
-        But we have a simple, yet powerful UI
+      <h2 
+        className="text-6xl font-bold gradient-text text-glow mb-8 opacity-0 transition-opacity duration-1000 ease-in-out"
+        ref={(el) => {
+          if (el) {
+            const observer = new IntersectionObserver(
+              ([entry]) => {
+                if (entry.isIntersecting) {
+                  el.style.opacity = '1';
+                }
+              },
+              { threshold: 0.1 }
+            );
+            observer.observe(el);
+          }
+        }}
+      >
+       But we have a simple, yet powerful UI
       </h2>
       <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-24">
         Our intuitive interface makes it easy to manage your drone fleet while providing powerful analytics and insights at your fingertips.
@@ -296,11 +483,15 @@ export default function Home() {
     </div>
     </section>
 
+
+    <EfficiencyAndSustainabilitySection /> 
+
       {/* Footer */}
       <footer className="bg-card py-8 text-center">
         <p className="text-sm">Contact us at <a href="mailto:support@evion.com" className="gradient-text">eviondrones@gmail.com</a></p>
         <p className="text-sm">© 2024 Evion. All rights reserved.</p>
       </footer>
+
     </div>
   );
 }
