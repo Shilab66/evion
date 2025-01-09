@@ -1,105 +1,66 @@
-import React, { useRef, useEffect } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { gsap } from 'gsap';
-import { DroneModel } from './DroneModel';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import * as THREE from 'three';
+import React, { useRef, useEffect } from "react";
+import { Canvas } from "@react-three/fiber";
+import { DroneModel } from "./DroneModel";
 
-gsap.registerPlugin(ScrollTrigger);
-
-interface DragSceneProps {
-  onIntroComplete: () => void;
-}
-
-function AnimatedDrone() {
-  const droneRef = useRef<THREE.Group>(null);
-  const scrollTriggerRef = useRef<ScrollTrigger | null>(null);
-
-  useEffect(() => {
-    if (droneRef.current) {
-      // Create ScrollTrigger for drone animations
-      scrollTriggerRef.current = ScrollTrigger.create({
-        trigger: "canvas", // The canvas container
-        start: "top top", // Start when the canvas hits the top of the viewport
-        end: "bottom bottom", // End when the canvas leaves the viewport
-        scrub: true, // Smoothly synchronize animation with scroll progress
-        onUpdate: (self) => {
-          const progress = self.progress;
-
-          // Rotate the drone by 360° during the first 50% of scroll
-          if (progress <= 0.5) {
-            const rotationProgress = progress / 0.5; // Normalize to [0, 1]
-            droneRef.current!.rotation.y = rotationProgress * Math.PI * 2;
-            droneRef.current!.position.y = 0; // Keep Y fixed
-          } else {
-            // After rotation, move the drone downward along the Y-axis
-            const moveProgress = (progress - 0.5) / 0.5; // Normalize second half to [0, 1]
-            droneRef.current!.rotation.y = Math.PI * 2; // Fix rotation at 360°
-            droneRef.current!.position.y = -5 * moveProgress; // Move downward
-          }
-        },
-      });
-    }
-
-    // Cleanup ScrollTrigger instance on component unmount
-    return () => {
-      if (scrollTriggerRef.current) {
-        scrollTriggerRef.current.kill();
-      }
-    };
-  }, []);
-
-  return <DroneModel ref={droneRef} onIntroComplete={() => console.log("Intro complete")} />;
-}
-
-
-
-
-export function DragScene({ onIntroComplete }: DragSceneProps) {
+export function DragScene() {
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     if (subtitleRef.current && titleRef.current) {
-      const tl = gsap.timeline({ onComplete: onIntroComplete });
+      const fadeInDuration = 1.5;
+      subtitleRef.current.style.opacity = "0";
+      subtitleRef.current.style.transform = "translateY(20px)";
+      titleRef.current.style.opacity = "0";
+      titleRef.current.style.transform = "translateY(20px)";
 
-      tl.to(subtitleRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power2.inOut",
-        delay: 2.5, // Delay the subtitle fade-in until after the drone rotation
-      }).to(titleRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power2.inOut",
-      }, "-=0.5"); // Start the title animation 0.5 seconds before the subtitle animation ends
+      // Fade in subtitle
+      setTimeout(() => {
+        if (subtitleRef.current) {
+          subtitleRef.current.style.transition = `opacity ${fadeInDuration}s ease, transform ${fadeInDuration}s ease`;
+          subtitleRef.current.style.opacity = "1";
+          subtitleRef.current.style.transform = "translateY(0)";
+        }
+      }, 500);
+
+      // Fade in title
+      setTimeout(() => {
+        if (titleRef.current) {
+          titleRef.current.style.transition = `opacity ${fadeInDuration}s ease, transform ${fadeInDuration}s ease`;
+          titleRef.current.style.opacity = "1";
+          titleRef.current.style.transform = "translateY(0)";
+        }
+      }, 1000);
     }
-  }, [onIntroComplete]);
+  }, []);
 
   return (
-    <div className="relative w-full h-screen">
-      <Canvas camera={{ position: [0, 0, 5], fov: 60 }}>
-        <ambientLight intensity={0.5} />
-        <directionalLight intensity={1} position={[5, 5, 5]} />
-        <AnimatedDrone />
-      </Canvas>
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-        <p 
+    <div className="relative w-full flex flex-col items-center">
+      {/* Header Section */}
+      <div className="text-center mt-16">
+        <p
           ref={subtitleRef}
-          className="text-4xl font-light text-muted-foreground opacity-0 transform translate-y-10 mb-5 mt-8"
+          className="text-white text-4xl opacity-0 transition-transform"
         >
           Meet Evion
         </p>
-        <h1 
+        <h1
           ref={titleRef}
-          className="text-8xl font-medium gradient-text text-glow opacity-0 transform translate-y-10"
+          className="text-6xl font-medium gradient-glow text-glow font-bold opacity-0 transition-transform mt-4"
         >
-          Precision Agriculture <span className="italic">Reimagined</span>
+          Precision Agriculture<br />
+          <span className="italic">Reimagined</span>
         </h1>
+      </div>
+
+      {/* Drone Section */}
+      <div className="mt-20 w-full h-[60vh] flex justify-center items-center">
+        <Canvas camera={{ position: [0, 1, 5], fov: 75 }}>
+          <ambientLight intensity={0.5} />
+          <directionalLight intensity={1} position={[5, 5, 5]} />
+          <DroneModel />
+        </Canvas>
       </div>
     </div>
   );
 }
-

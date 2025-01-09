@@ -81,8 +81,8 @@ body {
 }
 
 .text-glow {
-  text-shadow: 0 0 10px hsl(var(--primary) / 0.5),
-               0 0 20px hsl(var(--secondary) / 0.3);
+  text-shadow: 0 0 10px hsl(var(--primary) / 1),
+               0 0 20px hsl(var(--secondary) / 0);
 }
 
 .neon-border {
@@ -117,7 +117,14 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(45deg, #23bbd6, #5dcc53);
+  background: linear-gradient(90deg, #10ffff, #3bf22b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-glow {
+  background: linear-gradient(90deg, #1900ff, #15ff00);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

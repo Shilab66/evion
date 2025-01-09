@@ -4,13 +4,14 @@ import React, { useState, useEffect, useRef } from "react";
 import { DragScene } from "@/components";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Globe2, Shield, Users } from 'lucide-react';
+import { AnimatedHighlight } from '../components/animated-highlight.tsx'
 
 
 function EfficiencyAndSustainabilitySection() {
   const [activeTab, setActiveTab] = useState('efficiency');
 
   return (
-    <section className="min-h-screen py-24 px-8 bg-gradient-to-b from-black to-zinc-900">
+    <section className="min-h-screen py-24 px-8 from-black to-zinc-900">
       <div className="max-w-7xl mx-auto">
         <motion.h2 
           className="text-6xl font-bold text-center mb-16 text-white"
@@ -45,7 +46,7 @@ function EfficiencyAndSustainabilitySection() {
             {activeTab === 'efficiency' && (
               <>
                 <motion.div 
-                  className="bg-gray-800 p-6 rounded-lg"
+                  className="bg-gray-800 p-6 rounded-2xl"
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
@@ -60,7 +61,7 @@ function EfficiencyAndSustainabilitySection() {
                 </motion.div>
                 
                 <motion.div 
-                  className="bg-gray-800 p-6 rounded-lg"
+                  className="bg-gray-800 p-6 rounded-2xl"
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
@@ -79,7 +80,7 @@ function EfficiencyAndSustainabilitySection() {
             {activeTab === 'sustainability' && (
               <>
                 <motion.div 
-                  className="bg-gray-800 p-6 rounded-lg"
+                  className="bg-gray-800 p-6 rounded-2xl"
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
@@ -94,7 +95,7 @@ function EfficiencyAndSustainabilitySection() {
                 </motion.div>
                 
                 <motion.div 
-                  className="bg-gray-800 p-6 rounded-lg"
+                  className="bg-gray-800 p-6 rounded-2xl"
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
@@ -113,7 +114,7 @@ function EfficiencyAndSustainabilitySection() {
             {activeTab === 'innovation' && (
               <>
                 <motion.div 
-                  className="bg-gray-800 p-6 rounded-lg"
+                  className="bg-gray-800 p-6 rounded-2xl"
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
@@ -123,7 +124,7 @@ function EfficiencyAndSustainabilitySection() {
                 </motion.div>
                 
                 <motion.div 
-                  className="bg-gray-800 p-6 rounded-lg"
+                  className="bg-gray-800 p-6 rounded-2xl"
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
@@ -144,7 +145,7 @@ function EfficiencyAndSustainabilitySection() {
             <motion.img
               src="/placeholder.svg?height=400&width=400"
               alt="Eco-friendly drone"
-              className="relative z-10 w-full h-auto rounded-lg shadow-2xl"
+              className="relative z-10 w-full h-auto rounded-2xl shadow-2xl"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
@@ -153,7 +154,7 @@ function EfficiencyAndSustainabilitySection() {
         </div>
         
         <motion.div 
-          className="mt-16 bg-gray-800 p-8 rounded-lg"
+          className="mt-16 bg-gray-800 p-8 rounded-2xl"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -208,17 +209,9 @@ function EfficiencyAndSustainabilitySection() {
 
 
 export default function Home() {
-  const [introComplete, setIntroComplete] = useState(false);
   const [showAutonomy, setShowAutonomy] = useState(false);
   const [showWeGotIt, setShowWeGotIt] = useState(false);
   const { scrollY } = useScroll();
-
-  useEffect(() => {
-    document.body.style.overflow = introComplete ? "auto" : "hidden";
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [introComplete]);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     if (latest > window.innerHeight * 0.3) {
@@ -229,22 +222,19 @@ export default function Home() {
     }
   });
 
-  const handleIntroComplete = () => {
-    setIntroComplete(true);
-  };
-
   return (
     <div className="bg-black text-white">
       {/* Initial Section */}
       <section className="h-screen flex items-center justify-center">
-        <DragScene onIntroComplete={handleIntroComplete} />
+        <DragScene />
       </section>
 
+      
       {/* Header Section */}
 
       <section className="h-screen text-center fade-in">
       <h1 className="text-7xl font-bold text-center mb-8"> Autonomy? We got it.</h1>
-        <p className="text-3xl font-light max-w-xl mx-auto">
+        <p className="text-3xl text-gray-500 font-light max-w-xl mx-auto">
         Evion is a fully autonomous fleet drone system that features self-navigation to optimize performance and efficiency.
         </p>
       </section>
@@ -337,13 +327,15 @@ export default function Home() {
 
     {/* Solve it ALL Section */}
     <section className="h-screen text-center fade-in">
-    <h2 className="text-4xl font-bold gradient-text text-glow">Evion aims to Solve it ALL</h2>
+    <h2 className="text-4xl font-light text-white">
+            Evion aims to <AnimatedHighlight> solve it all</AnimatedHighlight>
+          </h2>
     </section>
 
     {/* Efficiency and Sustainability Section */}
     <section className="min-h-screen py-24 px-8">
     <div className="max-w-7xl mx-auto text-center">
-      <h2 className="text-6xl font-bold gradient-text text-glow mb-16">
+      <h2 className="text-6xl font-bold gradient-text mb-16">
         Keeping it user centered
       </h2>
       
@@ -409,7 +401,7 @@ export default function Home() {
     <section className="min-h-screen py-24 px-8 bg-zinc-900/30">
     <div className="max-w-7xl mx-auto text-center">
       <h2 
-        className="text-6xl font-bold gradient-text text-glow mb-8 opacity-0 transition-opacity duration-1000 ease-in-out"
+        className="text-6xl font-bold gradient-text mb-8 opacity-0 transition-opacity duration-1000 ease-in-out"
         ref={(el) => {
           if (el) {
             const observer = new IntersectionObserver(
@@ -424,7 +416,7 @@ export default function Home() {
           }
         }}
       >
-       But we have a simple, yet powerful UI
+       We have a simple, yet powerful UI
       </h2>
       <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-24">
         Our intuitive interface makes it easy to manage your drone fleet while providing powerful analytics and insights at your fingertips.
@@ -437,7 +429,7 @@ export default function Home() {
     <div className="max-w-7xl mx-auto">
       <div className="grid md:grid-cols-2 gap-16 items-center">
         <div className="space-y-6">
-          <h2 className="text-5xl font-bold gradient-text text-glow">
+          <h2 className="text-5xl font-bold gradient-text">
             Let us handle the complex analysis
           </h2>
           <p className="text-xl text-gray-400">
@@ -458,7 +450,7 @@ export default function Home() {
     {/* What You See Section */}
     <section className="min-h-screen py-24 px-8 bg-zinc-900/30">
     <div className="max-w-7xl mx-auto text-center">
-      <h2 className="text-6xl font-bold gradient-text text-glow mb-16">
+      <h2 className="text-6xl font-bold  mb-16">
         Here's what you see
       </h2>
       <div className="bg-zinc-900/50 rounded-lg overflow-hidden">
@@ -468,18 +460,6 @@ export default function Home() {
           className="w-full h-[600px] object-cover"
         />
       </div>
-    </div>
-    </section>
-
-    {/* Mission Section */}
-    <section className="min-h-screen py-24 px-8">
-    <div className="max-w-7xl mx-auto text-center">
-      <h2 className="text-6xl font-bold gradient-text text-glow mb-8">
-        Our Mission
-      </h2>
-      <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-        At Evion, we're committed to revolutionizing drone technology through autonomous systems that are not only efficient but also environmentally conscious. Our mission is to create sustainable solutions that empower businesses while protecting our planet for future generations.
-      </p>
     </div>
     </section>
 

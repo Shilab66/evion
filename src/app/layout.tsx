@@ -1,4 +1,5 @@
 import "./globals.css";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function RootLayout({
@@ -12,20 +13,21 @@ export default function RootLayout({
         <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md shadow-md">
           <div className="container mx-auto px-6 py-3">
             <div className="flex justify-between items-center">
-              <Link href="/" className="text-xl text-foreground gradient-text title-text">
+              <Link href="/" className="flex items-center gap-2 text-xl text-foreground gradient-text title-text">
+                <Image 
+                  src="/logo.jpg" // Assuming your file is named logo.jpg
+                  alt="Evion Logo"
+                  width={32}
+                  height={32}
+                  className="rounded-full"
+                />
                 Evion
               </Link>
               <div className="hidden md:flex space-x-4">
-                <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Shop
-                </Link>
-                <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Support
-                </Link>
-                <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link href="/about" className="text-muted-foreground hover:text-foreground transition-colors">
                   About
                 </Link>
-                <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
                   Contact
                 </Link>
               </div>
