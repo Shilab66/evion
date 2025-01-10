@@ -3,8 +3,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { DragScene } from "@/components";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { Globe2, Shield, Users } from 'lucide-react';
+import { Globe2, Droplet, Beaker } from 'lucide-react';
 import { AnimatedHighlight } from '../components/animated-highlight.tsx'
+import EnviormentalImpactCalulator from '../components/EnviormentalImpactCalulator.tsx'
 
 
 function EfficiencyAndSustainabilitySection() {
@@ -152,56 +153,8 @@ function EfficiencyAndSustainabilitySection() {
             />
           </div>
         </div>
-        
-        <motion.div 
-          className="mt-16 bg-gray-800 p-8 rounded-2xl"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          <h3 className="text-2xl font-semibold mb-4 text-white">Sustainability Metrics</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { label: "Carbon Footprint Reduction", value: "30%" },
-              { label: "Energy Efficiency Improvement", value: "45%" },
-              { label: "Recycled Materials Used", value: "70%" }
-            ].map((metric, index) => (
-              <div key={index} className="text-center">
-                <div className="text-4xl font-bold text-green-400 mb-2">{metric.value}</div>
-                <div className="text-sm text-gray-400">{metric.label}</div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
 
-
-        <div className="mt-24">
-          <h3 className="text-3xl font-semibold mb-8 text-center text-white">Environmental Impact Calculator</h3>
-          <div className="bg-gray-800 p-8 rounded-lg">
-            <p className="text-gray-300 mb-4">Estimate the environmental impact of switching to Evion drones:</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
-                <label htmlFor="fleet-size" className="block text-sm font-medium text-gray-400 mb-2">Current Fleet Size</label>
-                <input type="number" id="fleet-size" className="w-full px-3 py-2 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter number of drones" />
-              </div>
-              <div>
-                <label htmlFor="operation-hours" className="block text-sm font-medium text-gray-400 mb-2">Daily Operation Hours</label>
-                <input type="number" id="operation-hours" className="w-full px-3 py-2 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter hours per day" />
-              </div>
-            </div>
-            <button className="mt-6 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition duration-300">
-              Calculate Impact
-            </button>
-            <div className="mt-6 p-4 bg-gray-700 rounded-md">
-              <p className="text-white">Estimated annual reduction:</p>
-              <ul className="list-disc list-inside text-gray-300 mt-2">
-                <li>Carbon emissions: X tons</li>
-                <li>Energy consumption: Y kWh</li>
-                <li>Operational costs: Z%</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <EnviormentalImpactCalulator/>
       </div>
     </section>
   );
@@ -231,46 +184,63 @@ export default function Home() {
 
       
       {/* Header Section */}
+<section className="h-screen text-center fade-in mt-[500px] mb-[-400px]">
+  <h1 className="text-7xl font-bold text-center mb-8">Autonomy? We got it.</h1>
+  <p className="text-3xl max-w-5xl mx-auto">
+    <span className="text-gray-500 font-light">EVION is </span>
+    <span className="text-white font-medium">fully autonomous in its navigation, analysis, and charging/takeoff. </span>
+    <span className="text-gray-500 font-light">
+      With our perpetual “wave” recharge system, EVION effectively sends out replacement drones when one wave is charging, before repeating the cycle.
+    </span>
+  </p>
+</section>
 
-      <section className="h-screen text-center fade-in">
-      <h1 className="text-7xl font-bold text-center mb-8"> Autonomy? We got it.</h1>
-        <p className="text-3xl text-gray-500 font-light max-w-xl mx-auto">
-        Evion is a fully autonomous fleet drone system that features self-navigation to optimize performance and efficiency.
-        </p>
-      </section>
+{/* Stats Section */}
+<section className="min-h-screen grid grid-cols-1 md:grid-cols-3 gap-8 p-8 max-w-7xl mx-auto mb-[-100px]">
+  {[
+    {
+      icon: "2.5x",
+      title: "Flight Time,",
+      description: "when compared to multirotor drones of the same size on the market.",
+    },
+    {
+      icon: "11x",
+      title: "Faster,",
+      description: "when compared to industry-leading Precision Agriculture multirotor drones available.",
+    },
+    {
+      icon: "7x",
+      title: "More Cost Effective",
+      description: "per drone, when compared to industrial drones from companies like DJI and Parrot.",
+    },
+  ].map((stat, index) => (
+    <div
+      key={index}
+      className="relative p-8 bg-black rounded-lg transition-transform duration-300 hover:-translate-y-2"
+    >
+      <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-cyan-500 to-emerald-500" />
+      <div className="text-6xl mb-6">{stat.icon}</div>
+      <h3 className="text-2xl font-semibold mb-4">
+        <span className="text-white">{stat.title}</span>
+        <span className="text-gray-500"> {stat.description}</span>
+      </h3>
+    </div>
+  ))}
+</section>
 
-      {/* Stats Section */}
-      <section className="min-h-screen grid grid-cols-1 md:grid-cols-3 gap-8 p-8 max-w-7xl mx-auto">
-        {[
-          {
-            icon: "👆",
-            title: "Touch ID.",
-            description: "Unlock your Mac, sign in to apps, and make secure payments with your fingertip. The Secure Enclave keeps your fingerprint data safe.",
-          },
-          {
-            icon: "🎯",
-            title: "Find My.",
-            description: "Locate your misplaced MacBook Pro and remotely lock or erase it if needed.",
-          },
-          {
-            icon: "🔒",
-            title: "FileVault.",
-            description: "Encrypt and protect your files and data without having to think about it.",
-          },
-        ].map((stat, index) => (
-          <div
-            key={index}
-            className="relative p-8 bg-black rounded-lg transition-transform duration-300 hover:-translate-y-2"
-          >
-            <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-cyan-500 to-emerald-500" />
-            <div className="text-4xl mb-6">{stat.icon}</div>
-            <h3 className="text-2xl font-semibold mb-4">
-              <span className="text-white">{stat.title.split('.')[0]}.</span>
-              <span className="text-gray-500"> {stat.description}</span>
-            </h3>
-          </div>
-        ))}
-      </section>
+{/* Full Image */}
+<section className="min-h-screen py-24 px-8 bg-zinc-900/30">
+    <div className="max-w-7xl mx-auto text-center">
+      <div className="bg-zinc-900/50 rounded-lg overflow-hidden">
+        <img 
+          src="public/vercel.svg" 
+          alt="Default image placeholder"
+          className="w-full h-[600px] object-cover"
+        />
+      </div>
+    </div>
+    </section>
+
 
 {/* New Impact Section */}
 <section className="min-h-screen py-24 px-8">
@@ -279,7 +249,7 @@ export default function Home() {
     Designed to make<br />a difference.
   </h1>
   <p className="text-2xl text-gray-400 text-center max-w-4xl mx-auto mb-24">
-    What matters to you matters to Evion, too. From implementing sustainable practices that minimize environmental impact. To privacy protections that give you complete control over your data. To creating innovative features that make drone technology accessible to all.
+  We’re not just making farming more efficient, we’re tackling the significant environmental damage caused by resource overuse.
   </p>
   
   <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
@@ -289,35 +259,32 @@ export default function Home() {
       </div>
       <div>
         <p className="text-2xl">
-          <span className="text-white">Evion drones use </span>
-          <span className="text-gray-400">sustainable materials, with </span>
-          <span className="text-white">eco-friendly components </span>
-          <span className="text-gray-400">in every unit.</span>
+          <span className="text-white">Fertilizer. </span>
+          <span className="text-gray-400">Out of the 115 million tons of nitrogen fertilizer annually, 75 million tons run off into the environment as excess nitrogen. This pollutes water and creates massive Algae Blooms that kill any organisms.</span>
         </p>
       </div>
     </div>
 
     <div className="space-y-6">
       <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-400 to-cyan-500 flex items-center justify-center">
-        <Shield className="w-8 h-8 text-white" />
+        <Droplet className="w-8 h-8 text-white" />
       </div>
       <div>
         <p className="text-2xl">
-          <span className="text-white">Privacy is a fundamental human right. </span>
-          <span className="text-gray-400">Which is why we design our drones and services to protect it.</span>
+          <span className="text-white">Water. </span>
+          <span className="text-gray-400">Farmers use around 70% of the world's freshwater for agriculture, with roughly 40% of that water considered "wasted" due to poor irrigation & inefficient water management practices.          </span>
         </p>
       </div>
     </div>
 
     <div className="space-y-6">
       <div className="w-16 h-16 rounded-full bg-gradient-to-r from-indigo-400 to-purple-500 flex items-center justify-center">
-        <Users className="w-8 h-8 text-white" />
+        <Beaker className="w-8 h-8 text-white" />
       </div>
       <div>
         <p className="text-2xl">
-          <span className="text-white">The best technology works for everyone. </span>
-          <span className="text-gray-400">That's why our products and services are </span>
-          <span className="text-white">inclusive by design.</span>
+          <span className="text-white">Pesticide </span>
+          <span className="text-gray-400">Studies show that approximately 77% of farmers overuse pesticides. Pesticides enter ground and surface waters (streams, rivers) that people and wildlife use for drinking water, harming aquatic life. </span>
         </p>
       </div>
     </div>
@@ -442,6 +409,30 @@ export default function Home() {
             alt="Default image placeholder"
             className="w-full h-[400px] object-cover"
           />
+        </div>
+      </div>
+    </div>
+    </section>
+
+
+    {/* Complex Analysis Section */}
+    <section className="min-h-screen py-24 px-8">
+    <div className="max-w-7xl mx-auto">
+      <div className="grid md:grid-cols-2 gap-16 items-center">
+        <div className="bg-zinc-900/50 rounded-lg overflow-hidden">
+          <img 
+            src="public/vercel.svg" 
+            alt="Default image placeholder"
+            className="w-full h-[400px] object-cover"
+          />
+        </div>
+        <div className="space-y-6">
+          <h2 className="text-5xl font-bold gradient-text">
+            Erm acc you can handle the analysis
+          </h2>
+          <p className="text-xl text-gray-400">
+            We gave up.
+          </p>
         </div>
       </div>
     </div>

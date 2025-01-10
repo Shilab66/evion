@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
-import { DroneModel } from "./DroneModel";
+import { Drone } from "./Drone";
 
 export function DragScene() {
   const subtitleRef = useRef<HTMLParagraphElement>(null);
@@ -37,19 +37,18 @@ export function DragScene() {
   return (
     <div className="relative w-full flex flex-col items-center">
       {/* Header Section */}
-      <div className="text-center mt-16">
-        <p
+      <div className="text-center mt-[1000px]">
+        <h1
           ref={subtitleRef}
-          className="text-white text-4xl opacity-0 transition-transform"
+          className="text-white text-8xl opacity-0 transition-transform"
         >
-          Meet Evion
-        </p>
+          Precision Agriculture
+        </h1>
         <h1
           ref={titleRef}
-          className="text-6xl font-medium gradient-glow text-glow font-bold opacity-0 transition-transform mt-4"
+          className="text-8xl font-medium gradient-glow text-glow font-bold opacity-0 transition-transform mb-[400px]"
         >
-          Precision Agriculture<br />
-          <span className="italic">Reimagined</span>
+          Reimagined
         </h1>
       </div>
 
@@ -58,7 +57,7 @@ export function DragScene() {
         <Canvas camera={{ position: [0, 1, 5], fov: 75 }}>
           <ambientLight intensity={0.5} />
           <directionalLight intensity={1} position={[5, 5, 5]} />
-          <DroneModel />
+          <Drone />
         </Canvas>
       </div>
     </div>
