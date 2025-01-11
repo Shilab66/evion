@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 const EnvironmentalImpactCalculator: React.FC = () => {
   const [fleetSize, setFleetSize] = useState<number | ''>('');
+  const [farmAcreage, setFarmAcreage] = useState<number | ''>('');
   const [results, setResults] = useState<{
     emissionReduction: string;
     energyReduction: string;
@@ -9,25 +10,21 @@ const EnvironmentalImpactCalculator: React.FC = () => {
   } | null>(null);
 
   const calculateImpact = () => {
-    if (!fleetSize) {
-      alert('Please enter a valid number for the fleet size.');
+    if (!fleetSize || !farmAcreage) {
+      alert('Please enter valid numbers for both fields.');
       return;
     }
 
-    // Feudal average operation hours per day
-    const feudalAverageHours = 6; // 6 hours/day
-
     // Example assumptions:
-    const emissionPerHour = 0.5; // kg CO2
-    const energyPerHour = 1; // kWh
-    const costReduction = 0.2; // 20% cost reduction
+    const emissionPerAcre = 10; // kg CO2 per acre annually for traditional methods
+    const energyPerAcre = 15; // kWh per acre annually for traditional methods
+    const costReduction = 0.3; // 30% cost reduction
 
-    const totalHours = fleetSize * feudalAverageHours * 365; // Total operation hours in a year
-    const traditionalEmissions = totalHours * emissionPerHour; // Annual emissions for traditional drones
+    const traditionalEmissions = farmAcreage * emissionPerAcre; // Annual emissions for traditional methods
     const evionEmissions = traditionalEmissions * 0.2; // Reduced emissions with Evion drones
     const emissionReduction = traditionalEmissions - evionEmissions;
 
-    const traditionalEnergy = totalHours * energyPerHour; // Annual energy consumption for traditional drones
+    const traditionalEnergy = farmAcreage * energyPerAcre; // Annual energy consumption for traditional methods
     const evionEnergy = traditionalEnergy * 0.2; // Reduced energy with Evion drones
     const energyReduction = traditionalEnergy - evionEnergy;
 
@@ -65,6 +62,22 @@ const EnvironmentalImpactCalculator: React.FC = () => {
               placeholder="Enter number of drones"
               value={fleetSize === '' ? '' : fleetSize}
               onChange={(e) => setFleetSize(e.target.value === '' ? '' : parseInt(e.target.value, 10))}
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="farm-acreage"
+              className="block text-sm font-medium text-gray-400 mb-2"
+            >
+              Farm Acreage
+            </label>
+            <input
+              type="number"
+              id="farm-acreage"
+              className="w-full px-3 py-2 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter acreage"
+              value={farmAcreage === '' ? '' : farmAcreage}
+              onChange={(e) => setFarmAcreage(e.target.value === '' ? '' : parseInt(e.target.value, 10))}
             />
           </div>
         </div>

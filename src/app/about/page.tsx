@@ -6,33 +6,37 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import aanshi from "../../../public/aanshiEvion.png";
 import allen from "../../../public/allen.jpeg";
+import rudra from "../../../public/allen.jpeg";
+import goran from "../../../public/goran.png";
+import { Instagram, Mail, Youtube } from "lucide-react";
 
 
 const teamMembers = [
   {
-    name: "Aanshi Patel",
-    role: "CEO & Founder",
-    image: aanshi,
-    description: "Jane is a visionary leader with 15 years of experience in robotics and agriculture technology.",
+    name: "Rudrojas Kunvar",
+    role: "Lead Innovator",
+    image: rudra,
+    description: "Rudrojas founded Evion and leads the team in aligning vision, strategy, and execution to drive impactful agricultural innovation.",
   },
   {
     name: "Allen Du",
-    role: "CTO",
+    role: "Research & Strategy Lead",
     image: allen,
-    description: "John is an expert in AI and machine learning, driving Evion's technological innovations.",
+    description: "Allen develops market strategies and conducts extensive research to drive Evion’s innovation and business growth.",
   },
   {
-    name: "Emily Chen",
-    role: "Head of Design",
-    image: "/placeholder.svg?height=300&width=300",
-    description: "Emily brings a user-centered approach to Evion's product design, ensuring intuitive interfaces.",
+    name: "Goran Naydenov",
+    role: "Product Design & Engineering Lead",
+    image: goran,
+    description: "Goran designs and engineers Evion’s groundbreaking drone technology, focusing on functionality, sustainability, and innovation.",
   },
   {
-    name: "Michael Johnson",
-    role: "Lead Engineer",
-    image: "/placeholder.svg?height=300&width=300",
-    description: "Michael's expertise in robotics has been crucial in developing Evion's autonomous systems.",
-  },
+    name: "Aanshi Patel",
+    role: "Web Development & Programming Lead",
+    image: aanshi,
+    description: "Aanshi creates intuitive digital platforms and programs that seamlessly integrate EVION's core functionality and user experience.",
+  }
+
 ];
 
 export default function AboutPage() {
@@ -69,7 +73,7 @@ export default function AboutPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            At Evion, we're committed to empowering the farming community around Poolesville with cutting-edge agricultural robotics. Our mission is to increase crop yields, reduce resource consumption, and promote sustainable farming practices through innovative drone technology.
+            From inefficient farming tools, to severe overuse of resources, EVION aims to transform agriculture through innovative and sustainable drone technology for farmers of ANY scale. Our mission is to increase crop yields while promoting equitable and sustainable farming practices for all.
           </motion.p>
         </div>
       </section>
@@ -186,7 +190,7 @@ export default function AboutPage() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.2 }}
     >
-      Whether you're a farmer looking to optimize your crops or an investor interested in the future of agtech, we'd love to hear from you.
+      Whether you're a farmer looking to optimize your crops or an investor interested in the future of AgTech, we'd love to hear from you.
     </motion.p>
     <Link href="/contact"> {/* Wrap button with Link */}
       <motion.button 
@@ -200,6 +204,27 @@ export default function AboutPage() {
     </Link>
   </div>
 </section>
+<footer className="bg-card py-8">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col items-center space-y-4">
+          <div className="flex space-x-6">
+            <Link href="https://www.instagram.com/eviondrones/" className="gradient-text hover:opacity-80 transition-opacity">
+              <Instagram size={24} className="text-white" />
+            </Link>
+            <Link href="https://www.youtube.com/@eviondrones" className="gradient-text hover:opacity-80 transition-opacity">
+              <Youtube size={24} className="text-white" />
+            </Link>
+            <Link href="mailto:eviondrones@gmail.com" className="gradient-text hover:opacity-80 transition-opacity">
+              <Mail size={24} className="text-white" />
+            </Link>
+          </div>
+          <div className="text-sm text-center">
+            <p>Contact us at <a href="mailto:eviondrones@gmail.com" className="gradient-text hover:underline">eviondrones@gmail.com</a></p>
+            <p className="mt-2">© 2024 Evion. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
     </div>
   );
 }

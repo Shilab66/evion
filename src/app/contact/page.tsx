@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Instagram, Link, Mail, Youtube } from 'lucide-react';
 
 export default function ContactPage() {
   const [formStatus, setFormStatus] = useState<{ success?: boolean; message?: string } | null>(null);
@@ -98,6 +99,27 @@ export default function ContactPage() {
           )}
         </div>
       </section>
+      <footer className="bg-card py-8">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col items-center space-y-4">
+          <div className="flex space-x-6">
+            <Link href="https://www.instagram.com/eviondrones/" className="gradient-text hover:opacity-80 transition-opacity">
+              <Instagram size={24} className="text-white" />
+            </Link>
+            <Link href="https://www.youtube.com/@eviondrones" className="gradient-text hover:opacity-80 transition-opacity">
+              <Youtube size={24} className="text-white" />
+            </Link>
+            <Link href="mailto:eviondrones@gmail.com" className="gradient-text hover:opacity-80 transition-opacity">
+              <Mail size={24} className="text-white" />
+            </Link>
+          </div>
+          <div className="text-sm text-center">
+            <p>Contact us at <a href="mailto:eviondrones@gmail.com" className="gradient-text hover:underline">eviondrones@gmail.com</a></p>
+            <p className="mt-2">© 2024 Evion. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
     </div>
   );
 }

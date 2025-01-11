@@ -3,10 +3,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { DragScene } from "@/components";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { Globe2, Droplet, Beaker, RefreshCw, ArrowRight, Star, Wind, Timer, Wrench, Computer, ArrowBigLeftDash, ArrowBigRightDash, AudioWaveform } from 'lucide-react';
+import { Globe2, Droplet, Beaker, Zap, Cpu, ArrowRight, Star, Wind, Timer, Wrench, Computer, ArrowBigLeftDash, ArrowBigRightDash, AudioWaveform, Youtube, Instagram, Mail } from 'lucide-react';
 import { AnimatedHighlight } from '../components/animated-highlight.tsx'
 import EnviormentalImpactCalulator from '../components/EnviormentalImpactCalulator.tsx'
 import Stats from '../components/stats.tsx'
+import Link from "next/link";
 
 
 function EfficiencyAndSustainabilitySection() {
@@ -54,7 +55,7 @@ function EfficiencyAndSustainabilitySection() {
                   transition={{ duration: 0.8, delay: 0.2 }}
                 >
                   <div className="flex items-center mb-4">
-                    <Timer className="h-6 w-6 text-green-400 mr-2" />
+                    <Zap className="h-6 w-6 text-green-400 mr-2" />
                     <h3 className="text-2xl font-semibold">Energy Efficiency</h3>
                   </div>
                   <p className="text-gray-300">
@@ -103,7 +104,7 @@ function EfficiencyAndSustainabilitySection() {
                   transition={{ duration: 0.8, delay: 0.4 }}
                 >
                   <div className="flex items-center mb-4">
-                    <Computer className="h-6 w-6 text-green-400 mr-2" />
+                    <Cpu className="h-6 w-6 text-green-400 mr-2" />
                     <h3 className="text-2xl font-semibold">AI-Powered Flight & Analysis</h3>
                   </div>
                   <p className="text-gray-300">
@@ -471,10 +472,27 @@ export default function Home() {
     <EfficiencyAndSustainabilitySection /> 
 
       {/* Footer */}
-      <footer className="bg-card py-8 text-center">
-        <p className="text-sm">Contact us at <a href="mailto:support@evion.com" className="gradient-text">eviondrones@gmail.com</a></p>
-        <p className="text-sm">© 2024 Evion. All rights reserved.</p>
-      </footer>
+      <footer className="bg-card py-8">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col items-center space-y-4">
+          <div className="flex space-x-6">
+            <Link href="https://www.instagram.com/eviondrones/" className="gradient-text hover:opacity-80 transition-opacity">
+              <Instagram size={24} className="text-white" />
+            </Link>
+            <Link href="https://www.youtube.com/@eviondrones" className="gradient-text hover:opacity-80 transition-opacity">
+              <Youtube size={24} className="text-white" />
+            </Link>
+            <Link href="mailto:eviondrones@gmail.com" className="gradient-text hover:opacity-80 transition-opacity">
+              <Mail size={24} className="text-white" />
+            </Link>
+          </div>
+          <div className="text-sm text-center">
+            <p>Contact us at <a href="mailto:eviondrones@gmail.com" className="gradient-text hover:underline">eviondrones@gmail.com</a></p>
+            <p className="mt-2">© 2024 Evion. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
 
     </div>
   );

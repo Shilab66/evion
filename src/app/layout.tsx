@@ -49,12 +49,6 @@ export default function RootLayout({
                 </span>
               </Link>
               <div className="hidden md:flex space-x-6">
-                <Link href="/about" className="text-lg text-muted-foreground hover:text-foreground transition-colors">
-                  About
-                </Link>
-                <Link href="/contact" className="text-lg text-muted-foreground hover:text-foreground transition-colors">
-                  Contact
-                </Link>
                 {/* Smooth Scroll Link */}
                 <a
                   href="#impact"
@@ -63,6 +57,12 @@ export default function RootLayout({
                 >
                   Impact
                 </a>
+                <Link href="/about" className="text-lg text-muted-foreground hover:text-foreground transition-colors">
+                  About
+                </Link>
+                <Link href="/contact" className="text-lg text-muted-foreground hover:text-foreground transition-colors">
+                  Contact
+                </Link>
               </div>
             </div>
           </div>
