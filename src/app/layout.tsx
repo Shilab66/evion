@@ -44,7 +44,7 @@ export default function RootLayout({
                   height={48}
                   className="rounded-full"
                 />
-                <span className="flex items-center">
+                <span className="flex items-center text-4xl mt-[1vh]">
                   <b> EVION </b>
                 </span>
               </Link>

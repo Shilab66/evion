@@ -1,11 +1,12 @@
 import { Canvas } from "@react-three/fiber";
 import { Drone } from "./Drone";
-import { useEffect, useRef } from "react";
-
+import { useEffect, useRef, useState } from "react";
 
 export function DragScene() {
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
+  const droneRef = useRef<HTMLDivElement>(null); // Reference to the drone section
+  const [droneVisible, setDroneVisible] = useState(false);
 
   useEffect(() => {
     if (subtitleRef.current && titleRef.current) {
@@ -33,12 +34,35 @@ export function DragScene() {
         }
       }, 1000);
     }
+
+    // Intersection Observer for the drone fade-in effect
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setDroneVisible(true); // Set drone to visible when it enters the viewport
+          }
+        });
+      },
+      { threshold: 0.5 } // 50% of the drone section should be visible before triggering fade-in
+    );
+
+    if (droneRef.current) {
+      observer.observe(droneRef.current);
+    }
+
+    // Clean up observer on component unmount
+    return () => {
+      if (droneRef.current) {
+        observer.unobserve(droneRef.current);
+      }
+    };
   }, []);
 
   return (
     <div className="relative w-full flex flex-col items-center">
       {/* Header Section */}
-      <div className="text-center mt-[150vh]">
+      <div className="text-center mt-[130vh]">
         <h1
           ref={subtitleRef}
           className="text-white text-8xl opacity-0 transition-transform"
@@ -54,7 +78,12 @@ export function DragScene() {
       </div>
 
       {/* Drone Section */}
-      <div className=" w-full h-[200vh] mt-[-80vh] flex justify-center items-center">
+      <div
+        ref={droneRef} // Attach the reference to the drone section
+        className={`w-full h-[200vh] mt-[-100vh] flex justify-center items-center transition-opacity duration-1000 ${
+          droneVisible ? "opacity-100" : "opacity-0"
+        }`} // Apply the fade-in effect using opacity
+      >
         <Canvas camera={{ position: [0, 1, 5], fov: 90 }}>
           <ambientLight intensity={0.5} />
           <directionalLight intensity={1} position={[5, 5, 5]} />

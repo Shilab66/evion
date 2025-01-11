@@ -196,7 +196,7 @@ export default function Home() {
 
       
       {/* Header Section */}
-<section className="h-screen text-center fade-in mt-[100vh] mb-[-50vh]">
+<section className="h-screen text-center fade-in mt-[80vh] mb-[-50vh]">
   <h1 className="text-7xl font-bold text-center mb-8">Autonomy? We got it.</h1>
   <p className="text-3xl max-w-5xl mx-auto">
     <span className="text-gray-500 font-light">EVION is </span>
@@ -453,6 +453,7 @@ export default function Home() {
           autoPlay
           loop
           muted
+          playsInline
         />
       </div>
       <div className="space-y-6">

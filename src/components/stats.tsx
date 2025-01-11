@@ -21,12 +21,12 @@ const AnimatedStats: React.FC = () => {
           clearInterval(intervalIds[index]);
           return;
         }
-        if(target-current < 10){
-            current += 1;
-        } else{
-            current += 4;
+        if (target - current < 10) {
+          current += 1;
+        } else {
+          current += 4;
         }
-        
+
         setPercentages((prev) => {
           const updated = [...prev];
           updated[index] = current;
@@ -36,7 +36,12 @@ const AnimatedStats: React.FC = () => {
     });
   };
 
-  if (inView && percentages.every((p) => p === 0)) animateNumbers();
+  // Trigger the animation with a delay after the element is in view
+  if (inView && percentages.every((p) => p === 0)) {
+    setTimeout(() => {
+      animateNumbers();
+    }, 500); // Adjust this delay (in ms) to your preference
+  }
 
   return (
     <div
@@ -60,12 +65,14 @@ const AnimatedStats: React.FC = () => {
         </p>
         {data.map((item, index) => (
           <div key={index} style={{ gap: "0.5rem", display: "flex", flexDirection: "column" }}>
-            <div style={{ 
-              display: "flex", 
-              justifyContent: "space-between", 
-              alignItems: "center",
-              gap: "1rem" 
-            }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                gap: "1rem",
+              }}
+            >
               <h4
                 style={{
                   textAlign: "left",
@@ -73,7 +80,7 @@ const AnimatedStats: React.FC = () => {
                   fontWeight: 500,
                   whiteSpace: "pre-line",
                   maxWidth: "70%",
-                  margin: 0
+                  margin: 0,
                 }}
               >
                 {item.title}
@@ -87,7 +94,7 @@ const AnimatedStats: React.FC = () => {
                   WebkitTextFillColor: "transparent",
                   lineHeight: 1,
                   display: "flex",
-                  alignItems: "center"
+                  alignItems: "center",
                 }}
               >
                 {percentages[index]}%
@@ -120,4 +127,3 @@ const AnimatedStats: React.FC = () => {
 };
 
 export default AnimatedStats;
-

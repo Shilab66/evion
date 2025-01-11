@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import aanshi from "../../../public/aanshiEvion.png";
 import allen from "../../../public/allen.jpeg";
-import rudra from "../../../public/allen.jpeg";
+import rudra from "../../../public/rudra.jpg";
 import goran from "../../../public/goran.png";
 import { Instagram, Mail, Youtube } from "lucide-react";
 
@@ -68,7 +68,7 @@ export default function AboutPage() {
             Our Mission
           </motion.h2>
           <motion.p 
-            className="text-xl text-gray-400 max-w-3xl mx-auto"
+            className="text-xl text-gray-400 max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
