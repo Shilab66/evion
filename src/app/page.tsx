@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { DragScene } from "@/components";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { Globe2, Droplet, Beaker } from 'lucide-react';
+import { Globe2, Droplet, Beaker, RefreshCw, ArrowRight, Star, Wind, Timer, Wrench, Computer, ArrowBigLeftDash, ArrowBigRightDash, AudioWaveform } from 'lucide-react';
 import { AnimatedHighlight } from '../components/animated-highlight.tsx'
 import EnviormentalImpactCalulator from '../components/EnviormentalImpactCalulator.tsx'
 import Stats from '../components/stats.tsx'
@@ -15,18 +15,18 @@ function EfficiencyAndSustainabilitySection() {
   return (
     <section className="min-h-screen py-24 px-8 from-black to-zinc-900">
       <div className="max-w-7xl mx-auto">
-        <motion.h2 
+        <motion.h2
           className="text-6xl font-bold text-center mb-16 text-white"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Efficiency Meets Sustainability
+          Efficiency Meets Simplicity
         </motion.h2>
-        
+
         <div className="flex justify-center mb-12">
           <div className="inline-flex rounded-md shadow-sm" role="group">
-            {['efficiency', 'sustainability', 'innovation'].map((tab) => (
+            {['efficiency', 'simplicity', 'innovation'].map((tab) => (
               <button
                 key={tab}
                 type="button"
@@ -47,116 +47,125 @@ function EfficiencyAndSustainabilitySection() {
           <div className="space-y-8">
             {activeTab === 'efficiency' && (
               <>
-                <motion.div 
+                <motion.div
                   className="bg-gray-800 p-6 rounded-2xl"
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
                 >
                   <div className="flex items-center mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
+                    <Timer className="h-6 w-6 text-green-400 mr-2" />
                     <h3 className="text-2xl font-semibold">Energy Efficiency</h3>
                   </div>
-                  <p className="text-gray-300">Our drones utilize advanced power management systems, maximizing flight time while minimizing energy consumption. With smart battery technology, we've achieved a 40% increase in operational efficiency.</p>
+                  <p className="text-gray-300">
+                    With smart battery technology and only one thrust system to power, EVION is able to minimize energy consumption, unlike other drones that power multiple rotors.
+                  </p>
                 </motion.div>
-                
-                <motion.div 
+
+                <motion.div
                   className="bg-gray-800 p-6 rounded-2xl"
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                 >
                   <div className="flex items-center mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
+                    <Wind className="h-6 w-6 text-green-400 mr-2" />
                     <h3 className="text-2xl font-semibold">Aerodynamic Design</h3>
                   </div>
-                  <p className="text-gray-300">Evion drones feature cutting-edge aerodynamic designs, reducing drag and improving overall performance. This results in longer flight times and reduced energy consumption.</p>
+                  <p className="text-gray-300">
+                    Evion drones feature cutting-edge aerodynamic designs, reducing drag and improving overall performance. This results in longer flight times and reduced energy consumption.
+                  </p>
                 </motion.div>
               </>
             )}
 
-            {activeTab === 'sustainability' && (
+            {activeTab === 'simplicity' && (
               <>
-                <motion.div 
+                <motion.div
                   className="bg-gray-800 p-6 rounded-2xl"
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
                 >
                   <div className="flex items-center mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                    </svg>
-                    <h3 className="text-2xl font-semibold">Eco-Friendly Materials</h3>
+                    <Wrench className="h-6 w-6 text-green-400 mr-2" />
+                    <h3 className="text-2xl font-semibold">Build Quality</h3>
                   </div>
-                  <p className="text-gray-300">Evion drones are built using recycled and sustainable materials, reducing our carbon footprint without compromising on performance. We've achieved a 70% use of recycled materials in our latest models.</p>
+                  <p className="text-gray-300">
+                    By using a fiberglass-carbon fiber composite, EVION heavily minimizes any excess weight while maintaining more strength than steel.
+                  </p>
                 </motion.div>
-                
-                <motion.div 
+
+                <motion.div
                   className="bg-gray-800 p-6 rounded-2xl"
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                 >
                   <div className="flex items-center mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                    </svg>
-                    <h3 className="text-2xl font-semibold">Circular Economy</h3>
+                    <Computer className="h-6 w-6 text-green-400 mr-2" />
+                    <h3 className="text-2xl font-semibold">AI-Powered Flight & Analysis</h3>
                   </div>
-                  <p className="text-gray-300">We've implemented a comprehensive recycling program for our drones, ensuring that end-of-life products are properly dismantled and materials are reused in new production cycles.</p>
+                  <p className="text-gray-300">
+                  EVION’s AI-powered flight and analysis system enables fully autonomous drone operations, optimizing flight paths and performing real-time data collection. This intelligent system provides actionable insights, empowering farmers to make data-driven decisions with precision and simplicity.
+                  </p>
                 </motion.div>
               </>
             )}
 
             {activeTab === 'innovation' && (
               <>
-                <motion.div 
-                  className="bg-gray-800 p-6 rounded-2xl"
-                  initial={{ opacity: 0, x: -50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                >
-                  <h3 className="text-2xl font-semibold mb-4">AI-Powered Route Optimization</h3>
-                  <p className="text-gray-300">Our drones leverage artificial intelligence to optimize flight paths in real-time, reducing energy consumption and improving delivery efficiency by up to 25%.</p>
-                </motion.div>
-                
-                <motion.div 
-                  className="bg-gray-800 p-6 rounded-2xl"
-                  initial={{ opacity: 0, x: -50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
-                >
-                  <h3 className="text-2xl font-semibold mb-4">Noise Reduction Technology</h3>
-                  <p className="text-gray-300">We've developed proprietary noise reduction technology that makes our drones 40% quieter than traditional models, minimizing noise pollution in urban environments.</p>
-                </motion.div>
-              </>
+              <motion.div
+                className="bg-gray-800 p-6 rounded-2xl"
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                <div className="flex items-center mb-4">
+                  <ArrowBigRightDash className="h-6 w-6 text-green-400 mr-2" />
+                  <h3 className="text-2xl font-semibold">Vectored EDF for VTOL</h3>
+                </div>
+                <p className="text-gray-300">
+                Evion’s use of a vectored Electric Ducted Fan (EDF) in VTOL drones introduces a groundbreaking innovation, enabling precise airflow control through adjustable exhaust vanes. This technology, unlike any other precision agriculture drone, provides 40+ minutes of flight time for its size, while also being twice as fast.
+                </p>
+              </motion.div>
+
+              <motion.div
+                className="bg-gray-800 p-6 rounded-2xl"
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                <div className="flex items-center mb-4">
+                  <AudioWaveform className="h-6 w-6 text-green-400 mr-2" />
+                  <h3 className="text-2xl font-semibold">Wave-Recharge System</h3>
+                </div>
+                <p className="text-gray-300">
+                  EVION’s innovative wave-recharge system ensures perpetually autonomous drone operations by enabling drones to rotate between charging stations without human intervention. As one drone returns to recharge, another seamlessly takes its place, maximizing efficiency and minimizing downtime for continuous precision agriculture.
+                </p>
+              </motion.div>
+            </>
             )}
           </div>
-          
-          <div className="relative overflow-hidden rounded-2xl">
-  <motion.div
-    className="absolute inset-0 bg-blue-500 rounded-full blur-3xl opacity-20"
-    animate={{ scale: [1, 1.2, 1], rotate: [0, 180, 360] }}
-    transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-  />
-  <motion.img
-    src="../../break.gif?height=400&width=400"
-    alt="Eco-friendly drone"
-    className="relative z-10 w-full h-full object-cover rounded-2xl shadow-2xl"
-    initial={{ opacity: 0, scale: 0.8 }}
-    animate={{ opacity: 1, scale: 1 }}
-    transition={{ duration: 0.8 }}
-  />
-</div>
 
+          <div className="relative overflow-hidden rounded-2xl">
+            <motion.div
+              className="absolute inset-0 bg-blue-500 rounded-full blur-3xl opacity-20"
+              animate={{ scale: [1, 1.2, 1], rotate: [0, 180, 360] }}
+              transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
+            />
+            <motion.img
+              src="../../break.gif?height=400&width=400"
+              alt="Eco-friendly drone"
+              className="relative z-10 w-full h-full object-cover rounded-2xl shadow-2xl"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+            />
+          </div>
         </div>
 
-        <EnviormentalImpactCalulator/>
+        <EnviormentalImpactCalulator />
       </div>
     </section>
   );
@@ -246,7 +255,7 @@ export default function Home() {
 
 
 {/* New Impact Section */}
-<section className="min-h-screen py-24 px-8">
+<section id="impact" className="min-h-screen py-24 px-8">
 <div className="max-w-7xl mx-auto">
   <h1 className="text-7xl font-bold text-center mb-8">
     Designed to make<br />a difference.
@@ -353,25 +362,19 @@ export default function Home() {
         But what about the learning curve?
       </h3>
 
-      <div className="grid md:grid-cols-2 gap-16 items-center mb-32">
-        <div className="bg-zinc-900/50 rounded-lg overflow-hidden">
-          <img 
-            src="../../D.jpeg" 
-            alt="Default GIF placeholder"
-            className="w-full h-[60vh] object-cover"
-          />
-        </div>
-        <div className="bg-zinc-900/50 p-8 rounded-lg">
-          <Stats/>
+    <div className="container mx-auto px-4 py-8">
+        <div className="grid md:grid-cols-2 gap-16 items-center mb-32">
+        <div className="bg-zinc-900/50 rounded-lg overflow-hidden"> <img src="../../D.jpeg" alt="Default GIF placeholder" className="w-[200] h-[60vh] object-cover" /> </div> <div className="bg-zinc-900/50 p-8 rounded-lg"> <Stats/> </div>
         </div>
       </div>
     </div>
+
     </section>
 
     {/* Simple UI Section */}
-    <section className="min-h-screen py-24 px-8 bg-zinc-900/30 mb-[-60vh]">
+    <section className="min-h-screen py-24 px-8 bg-zinc-900/30 mb-[-50vh]">
     <div className="max-w-7xl mx-auto text-center">
-    <h2 className="text-4xl font-bold mb-[3.5vh]">
+    <h2 className="text-7xl font-bold mb-[3.5vh]">
           Don’t Worry,
       </h2>
       <h2 
@@ -432,7 +435,7 @@ export default function Home() {
         <img 
           src="../../H.svg" 
           alt="Default image placeholder"
-          className="w-full h-[95vh] object-cover"
+          className="w-full h-full object-cover"
         />
       </div>
     </div>

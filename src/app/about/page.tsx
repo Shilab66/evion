@@ -130,7 +130,7 @@ export default function AboutPage() {
     { year: "July 2024", event: "Early research begins on possible solutions to resource wastage; many more problems uncovered regarding agricultural inefficiency/inaccessibility. Thorough research commences." },
     { year: "October 2024", event: "Team forms united by the vision to create a more sustainable future for agriculture; Evion is born as the result of intense discussion and extensive research." },
     { year: "December 2024", event: "Early iterations of 3D CAD drone prototypes are designed; heavy research into marketing and business ensues; substantial progress is made into creating a functional website." },
-    { year: "January 2024", event: "Final 3D CAD drone model is complete; extensive progress has been made into research-backed business plans, and a fully operational website is launched." }
+    { year: "January 2024", event: "Final 3D CAD drone model is complete; extensive progress has been made into research-backed business plans, and a fully operational website is launched. Prototyping of the first version begins." }
   ].map((item, index) => (
             <motion.div 
               key={item.year}

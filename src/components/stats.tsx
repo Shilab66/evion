@@ -6,9 +6,9 @@ const AnimatedStats: React.FC = () => {
   const [percentages, setPercentages] = useState<number[]>([0, 0, 0]);
 
   const data = [
-    { title: "Farmers have concerns over drone usage", percentage: 76, barWidth: "98%" },
-    { title: "Currently using or considering drone usage", percentage: 74, barWidth: "95%" },
-    { title: "Farmers contract external companies to operate drones", percentage: 49, barWidth: "92%" },
+    { title: "Farmers who have concerns\nover drone usage", percentage: 76, barWidth: "76%" },
+    { title: "Currently using or considering drone usage", percentage: 74, barWidth: "74%" },
+    { title: "Farmers that contract external companies to operate drones", percentage: 49, barWidth: "49%" },
   ];
 
   const animateNumbers = () => {
@@ -23,7 +23,6 @@ const AnimatedStats: React.FC = () => {
         }
         if(target-current < 10){
             current += 1;
-
         } else{
             current += 4;
         }
@@ -43,7 +42,7 @@ const AnimatedStats: React.FC = () => {
     <div
       ref={inViewRef}
       style={{
-        backgroundColor: "rgba(39, 39, 42, 0.5)", // Equivalent to bg-zinc-900/50
+        backgroundColor: "rgba(39, 39, 42, 0.5)",
         padding: "2rem",
         borderRadius: "0.5rem",
       }}
@@ -52,8 +51,8 @@ const AnimatedStats: React.FC = () => {
         <p
           style={{
             textAlign: "left",
-            color: "rgb(209, 213, 219)", // Equivalent to text-gray-300
-            fontSize: "1.875rem", // Equivalent to text-3xl
+            color: "rgb(209, 213, 219)",
+            fontSize: "1.875rem",
             marginBottom: "3rem",
           }}
         >
@@ -61,23 +60,34 @@ const AnimatedStats: React.FC = () => {
         </p>
         {data.map((item, index) => (
           <div key={index} style={{ gap: "0.5rem", display: "flex", flexDirection: "column" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
+            <div style={{ 
+              display: "flex", 
+              justifyContent: "space-between", 
+              alignItems: "center",
+              gap: "1rem" 
+            }}>
               <h4
                 style={{
                   textAlign: "left",
-                  fontSize: "1.5rem", // Equivalent to text-2xl
+                  fontSize: "1.5rem",
                   fontWeight: 500,
+                  whiteSpace: "pre-line",
+                  maxWidth: "70%",
+                  margin: 0
                 }}
               >
                 {item.title}
               </h4>
               <span
                 style={{
-                  fontSize: "3rem", // Equivalent to text-5xl
+                  fontSize: "3rem",
                   fontWeight: "bold",
-                  background: "linear-gradient(to right, #3b82f6, #10b981)", // Gradient text
+                  background: "linear-gradient(to right, #3b82f6, #10b981)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
+                  lineHeight: 1,
+                  display: "flex",
+                  alignItems: "center"
                 }}
               >
                 {percentages[index]}%
@@ -86,19 +96,19 @@ const AnimatedStats: React.FC = () => {
             <div
               style={{
                 width: "100%",
-                height: "0.5rem", // Equivalent to h-2
-                backgroundColor: "rgb(31, 41, 55)", // Equivalent to bg-zinc-800
-                borderRadius: "0.25rem", // Equivalent to rounded-full
+                height: "0.5rem",
+                backgroundColor: "rgb(31, 41, 55)",
+                borderRadius: "0.25rem",
                 overflow: "hidden",
               }}
             >
               <div
                 style={{
                   height: "100%",
-                  width: inView ? item.barWidth : "0%", // Animate width on view
+                  width: inView ? item.barWidth : "0%",
                   background: "linear-gradient(to right, #3b82f6, #10b981)",
-                  borderRadius: "0.25rem", // Equivalent to rounded-full
-                  transition: "width 1s ease-in-out", // Smooth transition
+                  borderRadius: "0.25rem",
+                  transition: "width 1s ease-in-out",
                 }}
               />
             </div>
@@ -110,3 +120,4 @@ const AnimatedStats: React.FC = () => {
 };
 
 export default AnimatedStats;
+

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 const EnvironmentalImpactCalculator: React.FC = () => {
   const [fleetSize, setFleetSize] = useState<number | ''>('');
-  const [operationHours, setOperationHours] = useState<number | ''>('');
   const [results, setResults] = useState<{
     emissionReduction: string;
     energyReduction: string;
@@ -10,17 +9,20 @@ const EnvironmentalImpactCalculator: React.FC = () => {
   } | null>(null);
 
   const calculateImpact = () => {
-    if (!fleetSize || !operationHours) {
-      alert('Please enter valid numbers for both fields.');
+    if (!fleetSize) {
+      alert('Please enter a valid number for the fleet size.');
       return;
     }
+
+    // Feudal average operation hours per day
+    const feudalAverageHours = 6; // 6 hours/day
 
     // Example assumptions:
     const emissionPerHour = 0.5; // kg CO2
     const energyPerHour = 1; // kWh
     const costReduction = 0.2; // 20% cost reduction
 
-    const totalHours = fleetSize * operationHours * 365; // Total operation hours in a year
+    const totalHours = fleetSize * feudalAverageHours * 365; // Total operation hours in a year
     const traditionalEmissions = totalHours * emissionPerHour; // Annual emissions for traditional drones
     const evionEmissions = traditionalEmissions * 0.2; // Reduced emissions with Evion drones
     const emissionReduction = traditionalEmissions - evionEmissions;
@@ -63,22 +65,6 @@ const EnvironmentalImpactCalculator: React.FC = () => {
               placeholder="Enter number of drones"
               value={fleetSize === '' ? '' : fleetSize}
               onChange={(e) => setFleetSize(e.target.value === '' ? '' : parseInt(e.target.value, 10))}
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="operation-hours"
-              className="block text-sm font-medium text-gray-400 mb-2"
-            >
-              Daily Operation Hours
-            </label>
-            <input
-              type="number"
-              id="operation-hours"
-              className="w-full px-3 py-2 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Enter hours per day"
-              value={operationHours === '' ? '' : operationHours}
-              onChange={(e) => setOperationHours(e.target.value === '' ? '' : parseInt(e.target.value, 10))}
             />
           </div>
         </div>

@@ -19,7 +19,7 @@ export function AnimatedHighlight({ children, className = '' }: AnimatedHighligh
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top 90%',
-          end: 'top 50%', 
+          end: 'top 70%', 
           scrub: 0.3,
         },
         width: '100%',

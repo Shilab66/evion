@@ -20,6 +20,10 @@ body {
   font-family: 'Helios', 'Helvetica-Neue', 'Helvetica', sans-serif;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 @layer base {
   :root {
     --background: 220 50% 2%;
