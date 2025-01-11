@@ -21,7 +21,13 @@ const AnimatedStats: React.FC = () => {
           clearInterval(intervalIds[index]);
           return;
         }
-        current += 1;
+        if(target-current < 10){
+            current += 1;
+
+        } else{
+            current += 4;
+        }
+        
         setPercentages((prev) => {
           const updated = [...prev];
           updated[index] = current;

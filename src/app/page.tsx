@@ -186,7 +186,7 @@ export default function Home() {
 
       
       {/* Header Section */}
-<section className="h-screen text-center fade-in mt-[700px] mb-[-400px]">
+<section className="h-screen text-center fade-in mt-[120vh] mb-[-50vh]">
   <h1 className="text-7xl font-bold text-center mb-8">Autonomy? We got it.</h1>
   <p className="text-3xl max-w-5xl mx-auto">
     <span className="text-gray-500 font-light">EVION is </span>
@@ -198,7 +198,7 @@ export default function Home() {
 </section>
 
 {/* Stats Section */}
-<section className="min-h-screen grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto mb-[-100px]">
+<section className="min-h-screen grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto mb-[12vh]">
   {[
     {
       icon: "2.5x",
@@ -232,13 +232,13 @@ export default function Home() {
 
 
 {/* Full Image */}
-<section className="min-h-screen py-24 px-8 bg-zinc-900/30 mt-[-400px] relative">
+<section className="min-h-screen py-24 px-8 bg-zinc-900/30 mt-[-48vh] relative">
   <div className="max-w-7xl mx-auto text-center relative">
     <div className="bg-zinc-900/50 rounded-lg overflow-hidden relative z-10">
       <img 
         src="../../D.jpeg" 
         alt="Default image placeholder"
-        className="w-full h-[600px] object-cover relative z-20"
+        className="w-full h-[71vh] object-cover relative z-20"
       />
     </div>
   </div>
@@ -308,20 +308,20 @@ export default function Home() {
 </section>
 
     {/* Solve it ALL Section */}
-    <section className="h-screen text-center fade-in mb-[-800px]">
+    <section className="h-screen text-center fade-in mb-[-95vh]">
     <h2 className="text-4xl font-light text-white">
             Evion aims to <AnimatedHighlight> solve it all</AnimatedHighlight>
           </h2>
     </section>
 
     {/* Full Image */}
-<section className="min-h-screen py-24 px-8 bg-zinc-900/30 mt-[-400px]">
+<section className="min-h-screen py-24 px-8 bg-zinc-900/30 mt-[-47vh]">
     <div className="max-w-7xl mx-auto text-center">
       <div className="bg-zinc-900/50 rounded-lg overflow-hidden">
         <img 
           src="../../new.jpeg" 
           alt="Default image placeholder"
-          className="w-full h-[600px] object-cover"
+          className="w-full h-[71vh] object-cover"
         />
       </div>
     </div>
@@ -358,7 +358,7 @@ export default function Home() {
           <img 
             src="../../D.jpeg" 
             alt="Default GIF placeholder"
-            className="w-full h-[500px] object-cover"
+            className="w-full h-[60vh] object-cover"
           />
         </div>
         <div className="bg-zinc-900/50 p-8 rounded-lg">
@@ -369,9 +369,9 @@ export default function Home() {
     </section>
 
     {/* Simple UI Section */}
-    <section className="min-h-screen py-24 px-8 bg-zinc-900/30 mb-[-500px]">
+    <section className="min-h-screen py-24 px-8 bg-zinc-900/30 mb-[-60vh]">
     <div className="max-w-7xl mx-auto text-center">
-    <h2 className="text-4xl font-bold mb-[30px]">
+    <h2 className="text-4xl font-bold mb-[3.5vh]">
           Don’t Worry,
       </h2>
       <h2 
@@ -414,7 +414,7 @@ export default function Home() {
           <img 
             src="../../F.jpg" 
             alt="Simulation"
-            className="w-full h-[400px] object-cover"
+            className="w-full h-[48vh] object-cover"
           />
         </div>
       </div>
@@ -425,14 +425,14 @@ export default function Home() {
     {/* What You See Section */}
     <section className="min-h-screen py-24 px-8 bg-zinc-900/30">
     <div className="max-w-7xl mx-auto text-center">
-      <h2 className="text-6xl font-bold  mb-16 mt-[-200px]">
+      <h2 className="text-6xl font-bold  mb-16 mt-[-24vh]">
         Here's what you see
       </h2>
       <div className="bg-zinc-900/50 rounded-lg overflow-hidden">
         <img 
           src="../../H.svg" 
           alt="Default image placeholder"
-          className="w-full h-[800px] object-cover"
+          className="w-full h-[95vh] object-cover"
         />
       </div>
     </div>

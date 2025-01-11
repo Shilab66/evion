@@ -10,14 +10,14 @@ export function Drone() {
   useFrame(() => {
     if (droneRef.current) {
       // Rotate the drone slowly on the Y-axis
-      droneRef.current.rotation.y += 0.03; // Adjust this value for rotation speed
+      droneRef.current.rotation.y += 0.01; // Adjust this value for rotation speed
     }
   });
 
   return (
     <group
       ref={droneRef}
-      scale={[0.003, 0.003, 0.003]}
+      scale={[0.0035, 0.0035, 0.0035]}
       position={[0, -1, 0]}
       rotation={[0, -7 * Math.PI / 6, 0]}
     >
