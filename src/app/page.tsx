@@ -186,7 +186,7 @@ export default function Home() {
 
       
       {/* Header Section */}
-<section className="h-screen text-center fade-in mt-[200vh] mb-[-50vh]">
+<section className="h-screen text-center fade-in mt-[100vh] mb-[-50vh]">
   <h1 className="text-7xl font-bold text-center mb-8">Autonomy? We got it.</h1>
   <p className="text-3xl max-w-5xl mx-auto">
     <span className="text-gray-500 font-light">EVION is </span>
@@ -439,27 +439,30 @@ export default function Home() {
     </section>
 
     {/* Complex Analysis Section */}
-    <section className="min-h-screen py-24 px-8 mb-[-24vh]">
-    <div className="max-w-7xl mx-auto">
-      <div className="grid md:grid-cols-2 gap-16 items-center">
-        <div className="bg-zinc-900/50 rounded-lg overflow-hidden">
-          <img 
-            src="../../G.gif" 
-            alt="Default image placeholder"
-            className="w-full h-[47vh] object-cover"
-          />
-        </div>
-        <div className="space-y-6">
-          <h2 className="text-5xl font-bold gradient-text">
+<section className="min-h-screen py-24 px-8 mb-[-24vh]">
+  <div className="max-w-7xl mx-auto">
+    <div className="grid md:grid-cols-2 gap-16 items-center">
+      <div className="bg-zinc-900/50 rounded-lg overflow-hidden">
+        <video 
+          src="../../dash.mov" 
+          className="w-full h-[47vh] object-cover"
+          autoPlay
+          loop
+          muted
+        />
+      </div>
+      <div className="space-y-6">
+        <h2 className="text-5xl font-bold gradient-text">
           Advanced Settings Menu
-          </h2>
-          <p className="text-xl text-gray-400">
+        </h2>
+        <p className="text-xl text-gray-400">
           Highly customizable menu where you can adjust complex drone settings and options such as flight paths or data prioritization to your own liking.
-          </p>
-        </div>
+        </p>
       </div>
     </div>
-    </section>
+  </div>
+</section>
+
 
 
     <EfficiencyAndSustainabilitySection /> 

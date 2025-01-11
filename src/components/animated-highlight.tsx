@@ -18,12 +18,12 @@ export function AnimatedHighlight({ children, className = '' }: AnimatedHighligh
       gsap.to(highlightRef.current, {
         scrollTrigger: {
           trigger: containerRef.current,
-          start: 'top 90%', // Trigger earlier when the top of the element is 80% down the viewport
-          end: 'top 50%',  // End earlier when the top of the element is 20% down the viewport
-          scrub: 0.3,      // Smoother and faster animation response
+          start: 'top 90%',
+          end: 'top 50%', 
+          scrub: 0.3,
         },
         width: '100%',
-        duration: 0.5, // Maintain a quick animation duration
+        duration: 0.5,
         ease: 'none',
       })
     }
