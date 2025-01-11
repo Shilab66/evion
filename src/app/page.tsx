@@ -74,7 +74,7 @@ function EfficiencyAndSustainabilitySection() {
                     <h3 className="text-2xl font-semibold">Aerodynamic Design</h3>
                   </div>
                   <p className="text-gray-300">
-                    Evion drones feature cutting-edge aerodynamic designs, reducing drag and improving overall performance. This results in longer flight times and reduced energy consumption.
+                    EVION drones feature cutting-edge aerodynamic designs, reducing drag and improving overall performance. This results in longer flight times and reduced energy consumption.
                   </p>
                 </motion.div>
               </>
@@ -127,7 +127,7 @@ function EfficiencyAndSustainabilitySection() {
                   <h3 className="text-2xl font-semibold">Vectored EDF for VTOL</h3>
                 </div>
                 <p className="text-gray-300">
-                Evion’s use of a vectored Electric Ducted Fan (EDF) in VTOL drones introduces a groundbreaking innovation, enabling precise airflow control through adjustable exhaust vanes. This technology, unlike any other precision agriculture drone, provides 40+ minutes of flight time for its size, while also being twice as fast.
+                EVION's use of a vectored Electric Ducted Fan (EDF) in VTOL drones introduces a groundbreaking innovation, enabling precise airflow control through adjustable exhaust vanes. This technology, unlike any other precision agriculture drone, provides 40+ minutes of flight time for its size, while also being twice as fast.
                 </p>
               </motion.div>
 
@@ -271,7 +271,7 @@ export default function Home() {
         <Globe2 className="w-8 h-8 text-white" />
       </div>
       <div>
-        <p className="text-2xl">
+        <p className="text-xl">
           <span className="text-white">Fertilizer. </span>
           <span className="text-gray-400">Farmers use around </span>
           <span className="text-white">70% of the world's freshwater </span>
@@ -287,7 +287,7 @@ export default function Home() {
         <Droplet className="w-8 h-8 text-white" />
       </div>
       <div>
-        <p className="text-2xl">
+        <p className="text-xl">
           <span className="text-white">Water. </span>
           <span className="text-gray-400">Out of the </span>
           <span className="text-white">115 million tons of nitrogen fertilizer </span>
@@ -304,8 +304,8 @@ export default function Home() {
         <Beaker className="w-8 h-8 text-white" />
       </div>
       <div>
-        <p className="text-2xl">
-          <span className="text-white">Pesticide </span>
+        <p className="text-xl">
+          <span className="text-white">Pesticide. </span>
           <span className="text-gray-400">Studies show that approximately </span>
           <span className="text-white">77% of farmers overuse pesticides. </span>
           <span className="text-gray-400">Pesticides enter ground and surface waters (streams, rivers) that people and wildlife use for drinking water, </span>
@@ -320,7 +320,7 @@ export default function Home() {
     {/* Solve it ALL Section */}
     <section className="h-screen text-center fade-in mb-[-95vh]">
     <h2 className="text-4xl font-light text-white">
-            Evion aims to <AnimatedHighlight> solve it all</AnimatedHighlight>
+            EVION aims to <AnimatedHighlight> solve it all</AnimatedHighlight>
           </h2>
     </section>
 
@@ -489,7 +489,7 @@ export default function Home() {
           </div>
           <div className="text-sm text-center">
             <p>Contact us at <a href="mailto:eviondrones@gmail.com" className="gradient-text hover:underline">eviondrones@gmail.com</a></p>
-            <p className="mt-2">© 2024 Evion. All rights reserved.</p>
+            <p className="mt-2">© 2024 EVION. All rights reserved.</p>
           </div>
         </div>
       </div>

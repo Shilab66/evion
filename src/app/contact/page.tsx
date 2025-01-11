@@ -39,7 +39,7 @@ export default function ContactPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Have questions about Evion? We'd love to hear from you!
+            Have questions about EVION? We'd love to hear from you!
           </motion.p>
           <motion.form 
             onSubmit={handleSubmit}
@@ -115,7 +115,7 @@ export default function ContactPage() {
           </div>
           <div className="text-sm text-center">
             <p>Contact us at <a href="mailto:eviondrones@gmail.com" className="gradient-text hover:underline">eviondrones@gmail.com</a></p>
-            <p className="mt-2">© 2024 Evion. All rights reserved.</p>
+            <p className="mt-2">© 2024 EVION. All rights reserved.</p>
           </div>
         </div>
       </div>

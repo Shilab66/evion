@@ -16,19 +16,19 @@ const teamMembers = [
     name: "Rudrojas Kunvar",
     role: "Lead Innovator",
     image: rudra,
-    description: "Rudrojas founded Evion and leads the team in aligning vision, strategy, and execution to drive impactful agricultural innovation.",
+    description: "Rudrojas founded EVION and leads the team in aligning vision, strategy, and execution to drive impactful agricultural innovation.",
   },
   {
     name: "Allen Du",
     role: "Research & Strategy Lead",
     image: allen,
-    description: "Allen develops market strategies and conducts extensive research to drive Evion’s innovation and business growth.",
+    description: "Allen develops market strategies and conducts extensive research to drive EVION's innovation and business growth.",
   },
   {
     name: "Goran Naydenov",
     role: "Product Design & Engineering Lead",
     image: goran,
-    description: "Goran designs and engineers Evion’s groundbreaking drone technology, focusing on functionality, sustainability, and innovation.",
+    description: "Goran designs and engineers EVION's groundbreaking drone technology, focusing on functionality, sustainability, and innovation.",
   },
   {
     name: "Aanshi Patel",
@@ -51,7 +51,7 @@ export default function AboutPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            About Evion
+            About EVION
           </motion.h1>
         </div>
       </section>
@@ -132,7 +132,7 @@ export default function AboutPage() {
           {[
     { year: "May 2024", event: "Curiosity sparked regarding harmful environmental effects of agricultural resource overuse during a lecture." },
     { year: "July 2024", event: "Early research begins on possible solutions to resource wastage; many more problems uncovered regarding agricultural inefficiency/inaccessibility. Thorough research commences." },
-    { year: "October 2024", event: "Team forms united by the vision to create a more sustainable future for agriculture; Evion is born as the result of intense discussion and extensive research." },
+    { year: "October 2024", event: "Team forms united by the vision to create a more sustainable future for agriculture; EVION is born as the result of intense discussion and extensive research." },
     { year: "December 2024", event: "Early iterations of 3D CAD drone prototypes are designed; heavy research into marketing and business ensues; substantial progress is made into creating a functional website." },
     { year: "January 2024", event: "Final 3D CAD drone model is complete; extensive progress has been made into research-backed business plans, and a fully operational website is launched. Prototyping of the first version begins." }
   ].map((item, index) => (
@@ -220,7 +220,7 @@ export default function AboutPage() {
           </div>
           <div className="text-sm text-center">
             <p>Contact us at <a href="mailto:eviondrones@gmail.com" className="gradient-text hover:underline">eviondrones@gmail.com</a></p>
-            <p className="mt-2">© 2024 Evion. All rights reserved.</p>
+            <p className="mt-2">© 2024 EVION. All rights reserved.</p>
           </div>
         </div>
       </div>
