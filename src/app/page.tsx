@@ -439,14 +439,14 @@ export default function Home() {
     </section>
 
     {/* Complex Analysis Section */}
-    <section className="min-h-screen py-24 px-8 mb-[-200px]">
+    <section className="min-h-screen py-24 px-8 mb-[-24vh]">
     <div className="max-w-7xl mx-auto">
       <div className="grid md:grid-cols-2 gap-16 items-center">
         <div className="bg-zinc-900/50 rounded-lg overflow-hidden">
           <img 
             src="../../G.gif" 
             alt="Default image placeholder"
-            className="w-full h-[400px] object-cover"
+            className="w-full h-[47vh] object-cover"
           />
         </div>
         <div className="space-y-6">
