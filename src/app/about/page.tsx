@@ -4,18 +4,21 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import aanshi from "../../../public/aanshiEvion.png";
+import allen from "../../../public/allen.jpeg";
+
 
 const teamMembers = [
   {
-    name: "Jane Doe",
+    name: "Aanshi Patel",
     role: "CEO & Founder",
-    image: "/placeholder.svg?height=300&width=300",
+    image: aanshi,
     description: "Jane is a visionary leader with 15 years of experience in robotics and agriculture technology.",
   },
   {
-    name: "John Smith",
+    name: "Allen Du",
     role: "CTO",
-    image: "/placeholder.svg?height=300&width=300",
+    image: allen,
     description: "John is an expert in AI and machine learning, driving Evion's technological innovations.",
   },
   {
@@ -110,91 +113,62 @@ export default function AboutPage() {
       </section>
 
       {/* Team Photos */}
-      <section className="py-24 px-8 bg-zinc-900/30">
-        <div className="max-w-7xl mx-auto">
-          <motion.h2 
-            className="text-4xl font-bold mb-16 text-center"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            Our Journey
-          </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <motion.div 
-              className="bg-zinc-900/50 rounded-lg overflow-hidden"
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <Image 
-                src="/placeholder.svg?height=400&width=600" 
-                alt="Team working on drone prototype"
-                width={600}
-                height={400}
-                className="w-full h-80 object-cover"
-              />
-              <p className="p-4 text-center text-gray-400">Our team working on the first Evion drone prototype</p>
-            </motion.div>
-            <motion.div 
-              className="bg-zinc-900/50 rounded-lg overflow-hidden"
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <Image 
-                src="/placeholder.svg?height=400&width=600" 
-                alt="Evion drone in action"
-                width={600}
-                height={400}
-                className="w-full h-80 object-cover"
-              />
-              <p className="p-4 text-center text-gray-400">Evion drone surveying a local farm in Poolesville</p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Timeline */}
       <section className="py-24 px-8">
-        <div className="max-w-7xl mx-auto">
-          <motion.h2 
-            className="text-4xl font-bold mb-16 text-center"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            Our Story
-          </motion.h2>
-          <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-green-400"></div>
-            {[
-              { year: "2020", event: "Evion founded by a group of Poolesville High School students" },
-              { year: "2021", event: "First prototype of the agricultural drone developed" },
-              { year: "2022", event: "Successful pilot program with local Poolesville farms" },
-              { year: "2023", event: "Expanded operations and partnerships with regional agricultural cooperatives" },
-              { year: "2024", event: "Launch of Evion's fully autonomous drone fleet system" }
-            ].map((item, index) => (
-              <motion.div 
-                key={item.year}
-                className={`flex items-center mb-8 ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-              >
-                <div className={`w-5/12 ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
-                  <h3 className="text-2xl font-bold mb-2 gradient-text">{item.year}</h3>
-                  <p className="text-gray-400">{item.event}</p>
-                </div>
-                <div className="w-2/12 flex justify-center">
-                  <div className="w-4 h-4 bg-green-400 rounded-full"></div>
-                </div>
-                <div className="w-5/12"></div>
-              </motion.div>
-            ))}
-          </div>
+      <div className="max-w-7xl mx-auto">
+        <motion.h2 
+          className="text-4xl font-bold mb-16 text-center"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          Our Story
+        </motion.h2>
+        <div className="relative">
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-green-400"></div>
+          {[
+    { year: "May 2024", event: "Curiosity sparked regarding harmful environmental effects of agricultural resource overuse during a lecture." },
+    { year: "July 2024", event: "Early research begins on possible solutions to resource wastage; many more problems uncovered regarding agricultural inefficiency/inaccessibility. Thorough research commences." },
+    { year: "October 2024", event: "Team forms united by the vision to create a more sustainable future for agriculture; Evion is born as the result of intense discussion and extensive research." },
+    { year: "December 2024", event: "Early iterations of 3D CAD drone prototypes are designed; heavy research into marketing and business ensues; substantial progress is made into creating a functional website." },
+    { year: "January 2024", event: "Final 3D CAD drone model is complete; extensive progress has been made into research-backed business plans, and a fully operational website is launched." }
+  ].map((item, index) => (
+            <motion.div 
+              key={item.year}
+              className="flex items-center mb-8"
+              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
+            >
+              {index % 2 === 0 ? (
+                <>
+                  <div className="w-5/12 text-right pr-8">
+                    <h3 className="text-2xl font-bold mb-2 gradient-text">{item.year}</h3>
+                    <p className="text-gray-400 text-justify">{item.event}</p>
+                  </div>
+                  <div className="w-2/12 flex justify-center">
+                    <div className="w-4 h-4 bg-green-400 rounded-full"></div>
+                  </div>
+                  <div className="w-5/12"></div>
+                </>
+              ) : (
+                <>
+                  <div className="w-5/12"></div>
+                  <div className="w-2/12 flex justify-center">
+                    <div className="w-4 h-4 bg-green-400 rounded-full"></div>
+                  </div>
+                  <div className="w-5/12 text-left pl-8">
+                    <h3 className="text-2xl font-bold mb-2 gradient-text">{item.year}</h3>
+                    <p className="text-gray-400 text-justify">{item.event}</p>
+                  </div>
+                </>
+              )}
+            </motion.div>
+          ))}
         </div>
-      </section>
+      </div>
+    </section>
+
+
 
       <section className="py-24 px-8 bg-zinc-900/30">
   <div className="max-w-7xl mx-auto text-center">

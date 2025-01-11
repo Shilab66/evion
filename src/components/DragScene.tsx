@@ -38,7 +38,7 @@ export function DragScene() {
   return (
     <div className="relative w-full flex flex-col items-center">
       {/* Header Section */}
-      <div className="text-center mt-[140vh]">
+      <div className="text-center mt-[200vh]">
         <h1
           ref={subtitleRef}
           className="text-white text-8xl opacity-0 transition-transform"
@@ -54,7 +54,7 @@ export function DragScene() {
       </div>
 
       {/* Drone Section */}
-      <div className=" w-full h-[100vh] flex justify-center items-center">
+      <div className=" w-full h-[200vh] flex justify-center items-center">
         <Canvas camera={{ position: [0, 1, 5], fov: 90 }}>
           <ambientLight intensity={0.5} />
           <directionalLight intensity={1} position={[5, 5, 5]} />
