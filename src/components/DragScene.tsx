@@ -1,6 +1,7 @@
-import React, { useRef, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Drone } from "./Drone";
+import { useEffect, useRef } from "react";
+
 
 export function DragScene() {
   const subtitleRef = useRef<HTMLParagraphElement>(null);
@@ -37,7 +38,7 @@ export function DragScene() {
   return (
     <div className="relative w-full flex flex-col items-center">
       {/* Header Section */}
-      <div className="text-center mt-[1000px]">
+      <div className="text-center mt-[800px]">
         <h1
           ref={subtitleRef}
           className="text-white text-8xl opacity-0 transition-transform"

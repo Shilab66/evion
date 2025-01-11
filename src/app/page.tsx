@@ -6,6 +6,7 @@ import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Globe2, Droplet, Beaker } from 'lucide-react';
 import { AnimatedHighlight } from '../components/animated-highlight.tsx'
 import EnviormentalImpactCalulator from '../components/EnviormentalImpactCalulator.tsx'
+import Stats from '../components/stats.tsx'
 
 
 function EfficiencyAndSustainabilitySection() {
@@ -137,21 +138,22 @@ function EfficiencyAndSustainabilitySection() {
             )}
           </div>
           
-          <div className="relative">
-            <motion.div 
-              className="absolute inset-0 bg-blue-500 rounded-full blur-3xl opacity-20"
-              animate={{ scale: [1, 1.2, 1], rotate: [0, 180, 360] }}
-              transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-            />
-            <motion.img
-              src="/placeholder.svg?height=400&width=400"
-              alt="Eco-friendly drone"
-              className="relative z-10 w-full h-auto rounded-2xl shadow-2xl"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-            />
-          </div>
+          <div className="relative overflow-hidden rounded-2xl">
+  <motion.div
+    className="absolute inset-0 bg-blue-500 rounded-full blur-3xl opacity-20"
+    animate={{ scale: [1, 1.2, 1], rotate: [0, 180, 360] }}
+    transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+  />
+  <motion.img
+    src="../../break.gif?height=400&width=400"
+    alt="Eco-friendly drone"
+    className="relative z-10 w-full h-full object-cover rounded-2xl shadow-2xl"
+    initial={{ opacity: 0, scale: 0.8 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.8 }}
+  />
+</div>
+
         </div>
 
         <EnviormentalImpactCalulator/>
@@ -184,7 +186,7 @@ export default function Home() {
 
       
       {/* Header Section */}
-<section className="h-screen text-center fade-in mt-[500px] mb-[-400px]">
+<section className="h-screen text-center fade-in mt-[700px] mb-[-400px]">
   <h1 className="text-7xl font-bold text-center mb-8">Autonomy? We got it.</h1>
   <p className="text-3xl max-w-5xl mx-auto">
     <span className="text-gray-500 font-light">EVION is </span>
@@ -196,7 +198,7 @@ export default function Home() {
 </section>
 
 {/* Stats Section */}
-<section className="min-h-screen grid grid-cols-1 md:grid-cols-3 gap-8 p-8 max-w-7xl mx-auto mb-[-100px]">
+<section className="min-h-screen grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto mb-[-100px]">
   {[
     {
       icon: "2.5x",
@@ -216,7 +218,7 @@ export default function Home() {
   ].map((stat, index) => (
     <div
       key={index}
-      className="relative p-8 bg-black rounded-lg transition-transform duration-300 hover:-translate-y-2"
+      className="relative px-8 py-4 bg-black rounded-lg transition-transform duration-300 hover:-translate-y-2"
     >
       <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-cyan-500 to-emerald-500" />
       <div className="text-6xl mb-6">{stat.icon}</div>
@@ -228,18 +230,19 @@ export default function Home() {
   ))}
 </section>
 
+
 {/* Full Image */}
-<section className="min-h-screen py-24 px-8 bg-zinc-900/30">
-    <div className="max-w-7xl mx-auto text-center">
-      <div className="bg-zinc-900/50 rounded-lg overflow-hidden">
-        <img 
-          src="public/vercel.svg" 
-          alt="Default image placeholder"
-          className="w-full h-[600px] object-cover"
-        />
-      </div>
+<section className="min-h-screen py-24 px-8 bg-zinc-900/30 mt-[-400px] relative">
+  <div className="max-w-7xl mx-auto text-center relative">
+    <div className="bg-zinc-900/50 rounded-lg overflow-hidden relative z-10">
+      <img 
+        src="../../D.jpeg" 
+        alt="Default image placeholder"
+        className="w-full h-[600px] object-cover relative z-20"
+      />
     </div>
-    </section>
+  </div>
+</section>
 
 
 {/* New Impact Section */}
@@ -260,7 +263,11 @@ export default function Home() {
       <div>
         <p className="text-2xl">
           <span className="text-white">Fertilizer. </span>
-          <span className="text-gray-400">Out of the 115 million tons of nitrogen fertilizer annually, 75 million tons run off into the environment as excess nitrogen. This pollutes water and creates massive Algae Blooms that kill any organisms.</span>
+          <span className="text-gray-400">Farmers use around </span>
+          <span className="text-white">70% of the world's freshwater </span>
+          <span className="text-gray-400">for agriculture, with roughly </span>
+          <span className="text-white">40% of that water considered "wasted" </span>
+          <span className="text-gray-400">due to poor irrigation & inefficient water management practices.</span>
         </p>
       </div>
     </div>
@@ -272,8 +279,13 @@ export default function Home() {
       <div>
         <p className="text-2xl">
           <span className="text-white">Water. </span>
-          <span className="text-gray-400">Farmers use around 70% of the world's freshwater for agriculture, with roughly 40% of that water considered "wasted" due to poor irrigation & inefficient water management practices.          </span>
-        </p>
+          <span className="text-gray-400">Out of the </span>
+          <span className="text-white">115 million tons of nitrogen fertilizer </span>
+          <span className="text-gray-400">annually, </span>
+          <span className="text-white">75 million tons run off </span>
+          <span className="text-gray-400">into the environment as excess nitrogen. This pollutes water and creates massive algae blooms that</span>
+          <span className="text-white"> kill any organisms.</span>
+          </p>
       </div>
     </div>
 
@@ -284,7 +296,10 @@ export default function Home() {
       <div>
         <p className="text-2xl">
           <span className="text-white">Pesticide </span>
-          <span className="text-gray-400">Studies show that approximately 77% of farmers overuse pesticides. Pesticides enter ground and surface waters (streams, rivers) that people and wildlife use for drinking water, harming aquatic life. </span>
+          <span className="text-gray-400">Studies show that approximately </span>
+          <span className="text-white">77% of farmers overuse pesticides. </span>
+          <span className="text-gray-400">Pesticides enter ground and surface waters (streams, rivers) that people and wildlife use for drinking water, </span>
+          <span className="text-white">harming aquatic life.</span>
         </p>
       </div>
     </div>
@@ -293,10 +308,23 @@ export default function Home() {
 </section>
 
     {/* Solve it ALL Section */}
-    <section className="h-screen text-center fade-in">
+    <section className="h-screen text-center fade-in mb-[-800px]">
     <h2 className="text-4xl font-light text-white">
             Evion aims to <AnimatedHighlight> solve it all</AnimatedHighlight>
           </h2>
+    </section>
+
+    {/* Full Image */}
+<section className="min-h-screen py-24 px-8 bg-zinc-900/30 mt-[-400px]">
+    <div className="max-w-7xl mx-auto text-center">
+      <div className="bg-zinc-900/50 rounded-lg overflow-hidden">
+        <img 
+          src="../../new.jpeg" 
+          alt="Default image placeholder"
+          className="w-full h-[600px] object-cover"
+        />
+      </div>
+    </div>
     </section>
 
     {/* Efficiency and Sustainability Section */}
@@ -328,45 +356,24 @@ export default function Home() {
       <div className="grid md:grid-cols-2 gap-16 items-center mb-32">
         <div className="bg-zinc-900/50 rounded-lg overflow-hidden">
           <img 
-            src="public/vercel.svg" 
+            src="../../D.jpeg" 
             alt="Default GIF placeholder"
-            className="w-full h-[400px] object-cover"
+            className="w-full h-[500px] object-cover"
           />
         </div>
         <div className="bg-zinc-900/50 p-8 rounded-lg">
-          <div className="space-y-6">
-            <div className="flex justify-between items-baseline">
-              <h4 className="text-2xl font-medium">Performance</h4>
-              <span className="text-5xl font-bold gradient-text">98%</span>
-            </div>
-            <div className="w-full h-2 bg-zinc-800 rounded-full overflow-hidden">
-              <div className="h-full w-[98%] bg-gradient-to-r from-blue-500 to-green-400 rounded-full" />
-            </div>
-            
-            <div className="flex justify-between items-baseline">
-              <h4 className="text-2xl font-medium">Accuracy</h4>
-              <span className="text-5xl font-bold gradient-text">95%</span>
-            </div>
-            <div className="w-full h-2 bg-zinc-800 rounded-full overflow-hidden">
-              <div className="h-full w-[95%] bg-gradient-to-r from-blue-500 to-green-400 rounded-full" />
-            </div>
-            
-            <div className="flex justify-between items-baseline">
-              <h4 className="text-2xl font-medium">Efficiency</h4>
-              <span className="text-5xl font-bold gradient-text">92%</span>
-            </div>
-            <div className="w-full h-2 bg-zinc-800 rounded-full overflow-hidden">
-              <div className="h-full w-[92%] bg-gradient-to-r from-blue-500 to-green-400 rounded-full" />
-            </div>
-          </div>
+          <Stats/>
         </div>
       </div>
     </div>
     </section>
 
     {/* Simple UI Section */}
-    <section className="min-h-screen py-24 px-8 bg-zinc-900/30">
+    <section className="min-h-screen py-24 px-8 bg-zinc-900/30 mb-[-500px]">
     <div className="max-w-7xl mx-auto text-center">
+    <h2 className="text-4xl font-bold mb-[30px]">
+          Don’t Worry,
+      </h2>
       <h2 
         className="text-6xl font-bold gradient-text mb-8 opacity-0 transition-opacity duration-1000 ease-in-out"
         ref={(el) => {
@@ -385,8 +392,8 @@ export default function Home() {
       >
        We have a simple, yet powerful UI
       </h2>
-      <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-24">
-        Our intuitive interface makes it easy to manage your drone fleet while providing powerful analytics and insights at your fingertips.
+      <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+      Our application is built with simplicity at its core, presenting only the most essential data in an intuitive and seamless way. Experience unmatched efficiency and functionality, designed to streamline your workflow effortlessly.
       </p>
     </div>
     </section>
@@ -400,13 +407,13 @@ export default function Home() {
             Let us handle the complex analysis
           </h2>
           <p className="text-xl text-gray-400">
-            While you focus on what matters most - growing your business and achieving your goals.
+          You don’t need to be an expert to understand NDVI Technology. Let us handle the complex analysis and interpretation.
           </p>
         </div>
         <div className="bg-zinc-900/50 rounded-lg overflow-hidden">
           <img 
-            src="public/vercel.svg" 
-            alt="Default image placeholder"
+            src="../../F.jpg" 
+            alt="Simulation"
             className="w-full h-[400px] object-cover"
           />
         </div>
@@ -415,41 +422,41 @@ export default function Home() {
     </section>
 
 
+    {/* What You See Section */}
+    <section className="min-h-screen py-24 px-8 bg-zinc-900/30">
+    <div className="max-w-7xl mx-auto text-center">
+      <h2 className="text-6xl font-bold  mb-16 mt-[-200px]">
+        Here's what you see
+      </h2>
+      <div className="bg-zinc-900/50 rounded-lg overflow-hidden">
+        <img 
+          src="../../H.svg" 
+          alt="Default image placeholder"
+          className="w-full h-[800px] object-cover"
+        />
+      </div>
+    </div>
+    </section>
+
     {/* Complex Analysis Section */}
-    <section className="min-h-screen py-24 px-8">
+    <section className="min-h-screen py-24 px-8 mb-[-200px]">
     <div className="max-w-7xl mx-auto">
       <div className="grid md:grid-cols-2 gap-16 items-center">
         <div className="bg-zinc-900/50 rounded-lg overflow-hidden">
           <img 
-            src="public/vercel.svg" 
+            src="../../G.gif" 
             alt="Default image placeholder"
             className="w-full h-[400px] object-cover"
           />
         </div>
         <div className="space-y-6">
           <h2 className="text-5xl font-bold gradient-text">
-            Erm acc you can handle the analysis
+          Advanced Settings Menu
           </h2>
           <p className="text-xl text-gray-400">
-            We gave up.
+          Highly customizable menu where you can adjust complex drone settings and options such as flight paths or data prioritization to your own liking.
           </p>
         </div>
-      </div>
-    </div>
-    </section>
-
-    {/* What You See Section */}
-    <section className="min-h-screen py-24 px-8 bg-zinc-900/30">
-    <div className="max-w-7xl mx-auto text-center">
-      <h2 className="text-6xl font-bold  mb-16">
-        Here's what you see
-      </h2>
-      <div className="bg-zinc-900/50 rounded-lg overflow-hidden">
-        <img 
-          src="public/vercel.svg" 
-          alt="Default image placeholder"
-          className="w-full h-[600px] object-cover"
-        />
       </div>
     </div>
     </section>

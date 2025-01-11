@@ -94,7 +94,6 @@ const EnvironmentalImpactCalculator: React.FC = () => {
             <ul className="list-disc list-inside text-gray-300 mt-2">
               <li>Carbon emissions: {results.emissionReduction} tons</li>
               <li>Energy consumption: {results.energyReduction} kWh</li>
-              <li>Operational costs: {results.operationalCostReduction}%</li>
             </ul>
           </div>
         )}

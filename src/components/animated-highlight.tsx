@@ -38,7 +38,7 @@ export function AnimatedHighlight({ children, className = '' }: AnimatedHighligh
       <span className="relative z-10">{children}</span>
       <span
         ref={highlightRef}
-        className="absolute inset-0 w-0 h-full bg-gradient-to-r from-green-400 to-cyan-400 opacity-50"
+        className="absolute inset-0 w-0 h-full bg-gradient-to-r from-green-400 to-cyan-400 opacity-70"
         style={{ transformOrigin: 'left' }}
       />
     </span>
