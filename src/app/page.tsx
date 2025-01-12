@@ -273,11 +273,12 @@ export default function Home() {
       <div>
         <p className="text-xl">
           <span className="text-white">Fertilizer. </span>
-          <span className="text-gray-400">Farmers use around </span>
-          <span className="text-white">70% of the world's freshwater </span>
-          <span className="text-gray-400">for agriculture, with roughly </span>
-          <span className="text-white">40% of that water considered "wasted" </span>
-          <span className="text-gray-400">due to poor irrigation & inefficient water management practices.</span>
+          <span className="text-gray-400">Out of the </span>
+          <span className="text-white">115 million tons of nitrogen fertilizer </span>
+          <span className="text-gray-400">annually, </span>
+          <span className="text-white">75 million tons run off </span>
+          <span className="text-gray-400">into the environment as excess nitrogen. This pollutes water and creates massive algae blooms that</span>
+          <span className="text-white"> kill any organisms.</span>
         </p>
       </div>
     </div>
@@ -289,12 +290,12 @@ export default function Home() {
       <div>
         <p className="text-xl">
           <span className="text-white">Water. </span>
-          <span className="text-gray-400">Out of the </span>
-          <span className="text-white">115 million tons of nitrogen fertilizer </span>
-          <span className="text-gray-400">annually, </span>
-          <span className="text-white">75 million tons run off </span>
-          <span className="text-gray-400">into the environment as excess nitrogen. This pollutes water and creates massive algae blooms that</span>
-          <span className="text-white"> kill any organisms.</span>
+
+          <span className="text-gray-400">Farmers use around </span>
+          <span className="text-white">70% of the world's freshwater </span>
+          <span className="text-gray-400">for agriculture, with roughly </span>
+          <span className="text-white">40% of that water considered "wasted" </span>
+          <span className="text-gray-400">due to poor irrigation & inefficient water management practices.</span>
           </p>
       </div>
     </div>

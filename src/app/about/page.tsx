@@ -7,14 +7,16 @@ import Link from "next/link";
 import aanshi from "../../../public/aanshiEvion.png";
 import allen from "../../../public/allen.jpeg";
 import rudra from "../../../public/rudra.jpg";
-import goran from "../../../public/goran.png";
+import goran from "../../../public/goran.jpeg";
 import { Instagram, Mail, Youtube } from "lucide-react";
+import team1 from "../../../public/team1.png";
+import team2 from "../../../public/team2.png";
 
 
 const teamMembers = [
   {
     name: "Rudrojas Kunvar",
-    role: "Lead Innovator",
+    role: "Project Lead",
     image: rudra,
     description: "Rudrojas founded EVION and leads the team in aligning vision, strategy, and execution to drive impactful agricultural innovation.",
   },
@@ -57,7 +59,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission Statement */}
-      <section className="py-24 px-8 bg-zinc-900/30">
+      <section className="py-24 px-8 mt-[-20vh]">
         <div className="max-w-7xl mx-auto text-center">
           <motion.h2 
             className="text-4xl font-bold mb-8"
@@ -115,6 +117,62 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+
+
+{/* Our Journey */}
+<section className="py-24 px-8">
+  <div className="max-w-7xl mx-auto">
+    <motion.h2 
+      className="text-4xl font-bold mb-16 text-center"
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
+      Our Journey
+    </motion.h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <motion.div 
+        className="bg-zinc-900/50 rounded-lg overflow-hidden flex flex-col"
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <div className="relative h-96 md:h-[500px]">
+          <Image 
+            src={team1} 
+            alt="Our journey image 1"
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
+        <div className="p-6 flex-grow">
+          <p className="text-gray-400">Collaborating on design and product research during a brainstorming session.</p>
+        </div>
+      </motion.div>
+      <motion.div 
+        className="bg-zinc-900/50 rounded-lg overflow-hidden flex flex-col"
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
+        <div className="relative h-96 md:h-[500px]">
+          <Image 
+            src={team2} 
+            alt="Our journey image 2"
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
+        <div className="p-6 flex-grow">
+          <p className="text-gray-400">Team discussion focused on project planning and prototyping.</p>
+        </div>
+      </motion.div>
+    </div>
+  </div>
+</section>
+
+
 
       {/* Team Photos */}
       <section className="py-24 px-8">
