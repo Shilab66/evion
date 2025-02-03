@@ -194,9 +194,24 @@ export default function Home() {
         <DragScene />
       </section>
 
+
+      {/* description Section */}
+      <section className="h-screen text-center fade-in mt-[80vh] mb-[-50vh]">
+      <p className="text-3xl max-w-5xl mx-auto">
+      <span className="text-gray-500 font-light">EVION is a </span>
+    <span className="text-white font-medium">fleet-based drone system </span>
+    <span className="text-gray-500 font-light">designed for </span>
+    <span className="text-white font-medium">efficient and scalable precision agriculture.</span>
+    <span className="text-gray-500 font-light">By utilizing a coordinated network of drones, EVION enhances </span>
+    <span className="text-white font-medium">crop monitoring, data collection, and field analysis</span>
+    <span className="text-gray-500 font-light">, making advanced agricultural technology </span>
+    <span className="text-white font-medium">accessible and easy to use.</span>
+    </p>
+    </section>
+      
       
       {/* Header Section */}
-<section className="h-screen text-center fade-in mt-[80vh] mb-[-50vh]">
+<section className="h-screen text-center fade-in mb-[-50vh]">
   <h1 className="text-7xl font-bold text-center mb-8">Autonomy? We got it.</h1>
   <p className="text-3xl max-w-5xl mx-auto">
     <span className="text-gray-500 font-light">EVION is </span>
@@ -208,7 +223,7 @@ export default function Home() {
 </section>
 
 {/* Stats Section */}
-<section className="min-h-screen grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto mb-[12vh]">
+<section className="min-h-screen grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto mb-[5vh]">
   {[
     {
       icon: "2.5x",
@@ -241,22 +256,8 @@ export default function Home() {
 </section>
 
 
-{/* Full Image */}
-<section className="min-h-screen py-24 px-8 bg-zinc-900/30 mt-[-48vh] relative">
-  <div className="max-w-7xl mx-auto text-center relative">
-    <div className="bg-zinc-900/50 rounded-lg overflow-hidden relative z-10">
-      <img 
-        src="../../D.jpeg" 
-        alt="Default image placeholder"
-        className="w-full h-[71vh] object-cover relative z-20"
-      />
-    </div>
-  </div>
-</section>
-
-
 {/* New Impact Section */}
-<section id="impact" className="min-h-screen py-24 px-8">
+<section id="impact" className="min-h-screen py-5 px-8">
 <div className="max-w-7xl mx-auto">
   <h1 className="text-7xl font-bold text-center mb-8">
     Designed to make<br />a difference.
